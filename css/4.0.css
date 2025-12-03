@@ -1,0 +1,1306 @@
+/* INDUSTRIA 4.0 - CSS COMPLETO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-blue: #1a365d;
+    --dark-blue: #0d1b2a;
+    --accent-red: #e53e3e;
+    --tech-purple: #805ad5;
+    --tech-green: #38a169;
+    --tech-cyan: #319795;
+    --light-bg: #f8fafc;
+    --white: #ffffff;
+    --text-dark: #2d3748;
+    --text-light: #718096;
+    --gradient-primary: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+    --gradient-tech: linear-gradient(135deg, #805ad5 0%, #3182ce 100%);
+    --gradient-accent: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --border-radius: 16px;
+}
+
+body {
+    font-family: 'Inter', 'Arial', sans-serif;
+    line-height: 1.7;
+    color: var(--text-dark);
+    background: var(--white);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Header */
+header {
+    background: rgba(26, 54, 93, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo h2 {
+    color: var(--white);
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #fff 0%, #cbd5e0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Nav Links Desktop */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 0.8rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links > li > a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-links > li > a:hover {
+    color: var(--accent-red);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-links > li > a.active {
+    color: var(--accent-red);
+    background: rgba(229, 62, 62, 0.1);
+}
+
+.nav-links > li > a i {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.has-submenu:hover > a i {
+    transform: rotate(180deg);
+}
+
+/* Submenús */
+.has-submenu {
+    position: relative;
+}
+
+.has-submenu .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    min-width: 220px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    z-index: 1001;
+    padding: 0.5rem 0;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.has-submenu .submenu li {
+    display: block;
+    margin: 0;
+}
+
+.has-submenu .submenu a {
+    color: var(--text-dark);
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #f0f0f0;
+    display: block;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.has-submenu .submenu a:hover {
+    background: var(--light-bg);
+    color: var(--accent-red);
+    padding-left: 1.5rem;
+}
+
+.has-submenu .submenu a.active {
+    color: var(--accent-red);
+    background: rgba(229, 62, 62, 0.1);
+}
+
+.has-submenu .submenu li:last-child a {
+    border-bottom: none;
+}
+
+.has-submenu:hover .submenu {
+    display: block;
+}
+
+.has-submenu .submenu::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 20px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid var(--white);
+}
+
+/* Hero Industria 4.0 */
+.industria-hero {
+    background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.85)), url('../img/fondo4.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--white);
+    text-align: center;
+    padding: 15rem 0 8rem;
+    margin-top: 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.industria-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
+    background-size: cover;
+    z-index: 1;
+}
+
+.industria-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.industria-hero h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #fff 0%, #e2e8f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.industria-hero h1 i {
+    font-size: 3.5rem;
+    color: var(--tech-purple);
+}
+
+.industria-hero p {
+    font-size: 1.4rem;
+    opacity: 0.9;
+    font-weight: 300;
+    max-width: 700px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    display: inline-block;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-subtitle p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* Objetivo */
+.objetivo-industria {
+    padding: 5rem 0;
+    background: var(--white);
+}
+
+.objetivo-card {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    background: var(--light-bg);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    border-left: 6px solid var(--tech-purple);
+}
+
+.objetivo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-left-color: var(--accent-red);
+}
+
+.objetivo-icono {
+    width: 100px;
+    height: 100px;
+    background: var(--gradient-tech);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.objetivo-card:hover .objetivo-icono {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.objetivo-icono i {
+    font-size: 2.5rem;
+    color: var(--white);
+}
+
+.objetivo-contenido h2 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.objetivo-contenido p {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Tecnologías */
+.tecnologias {
+    padding: 6rem 0;
+    background: var(--light-bg);
+}
+
+.tecnologias h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.tecnologias h2 i {
+    color: var(--tech-purple);
+}
+
+.seccion-descripcion {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
+/* Cards de Tecnología */
+.tecnologia-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    margin-bottom: 3rem;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    border-top: 6px solid var(--tech-cyan);
+}
+
+.tecnologia-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.tecnologia-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2.5rem 2.5rem 1.5rem;
+    background: linear-gradient(135deg, rgba(128, 90, 213, 0.05) 0%, rgba(49, 130, 206, 0.05) 100%);
+}
+
+.tecnologia-icono {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-tech);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.tecnologia-card:hover .tecnologia-icono {
+    transform: scale(1.1);
+}
+
+.tecnologia-icono i {
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.tecnologia-titulo h3 {
+    color: var(--primary-blue);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.tecnologia-tag {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: var(--tech-cyan);
+    color: var(--white);
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.tecnologia-contenido {
+    padding: 0 2.5rem 2.5rem;
+}
+
+.tecnologia-descripcion p {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+/* Impacto Grid */
+.impacto-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.impacto-item {
+    background: var(--light-bg);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.impacto-item:hover {
+    transform: translateY(-5px);
+    background: var(--primary-blue);
+}
+
+.impacto-item:hover .impacto-icono {
+    background: var(--accent-red);
+}
+
+.impacto-item:hover h4,
+.impacto-item:hover p {
+    color: var(--white);
+}
+
+.impacto-icono {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.impacto-icono i {
+    font-size: 1.2rem;
+    color: var(--white);
+}
+
+.impacto-contenido h4 {
+    color: var(--primary-blue);
+    margin-bottom: 0.3rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.impacto-contenido p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* Tecnología Doble (RPA + Blockchain) */
+.tecnologia-doble {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.tecnologia-columna {
+    background: var(--light-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--tech-purple);
+}
+
+.tecnologia-columna h4 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tecnologia-columna h4 i {
+    color: var(--tech-purple);
+}
+
+.tecnologia-lista {
+    list-style: none;
+    padding: 0;
+}
+
+.tecnologia-lista li {
+    padding: 0.5rem 0;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+
+.tecnologia-lista li i {
+    color: var(--tech-green);
+    font-size: 0.8rem;
+}
+
+/* Estadísticas IoT */
+.iot-estadisticas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.estadistica-item {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: var(--light-bg);
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+}
+
+.estadistica-item:hover {
+    background: var(--tech-purple);
+    transform: translateY(-5px);
+}
+
+.estadistica-item:hover .estadistica-valor,
+.estadistica-item:hover .estadistica-desc {
+    color: var(--white);
+}
+
+.estadistica-valor {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--tech-purple);
+    margin-bottom: 0.5rem;
+}
+
+.estadistica-desc {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* Beneficios Grid */
+.beneficios-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.beneficio-item {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: var(--light-bg);
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+}
+
+.beneficio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    background: var(--white);
+}
+
+.beneficio-item i {
+    font-size: 2rem;
+    color: var(--tech-cyan);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.beneficio-item h5 {
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.beneficio-item p {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* Imágenes de Tecnología */
+.tecnologia-imagenes {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--light-bg);
+}
+
+.tecnologia-imagenes h4 {
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tecnologia-imagenes h4 i {
+    color: var(--tech-purple);
+}
+
+/* Grids de imágenes */
+.imagenes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.imagenes-doble {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.imagenes-cuadruple {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.imagen-item {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+}
+
+.imagen-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.imagen-item-grande {
+    grid-column: span 1;
+}
+
+.tecnologia-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.imagen-item:hover .tecnologia-img {
+    transform: scale(1.05);
+}
+
+.leyenda-imagen {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: var(--white);
+    padding: 1rem;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/* Diagrama de Integración CON CSS (sin imagen) */
+.diagrama-integracion {
+    padding: 6rem 0;
+    background: var(--white);
+}
+
+.diagrama-integracion h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.diagrama-integracion h2 i {
+    color: var(--tech-purple);
+}
+
+.diagrama-container {
+    background: var(--light-bg);
+    border-radius: var(--border-radius);
+    padding: 3rem;
+    margin-top: 3rem;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.diagrama-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--tech-purple), var(--tech-cyan), var(--tech-green));
+}
+
+.diagrama-etapas {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.diagrama-etapas::before {
+    content: '';
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, 
+        var(--tech-purple) 0%, 
+        var(--tech-cyan) 33%, 
+        var(--accent-red) 66%, 
+        var(--tech-green) 100%);
+    z-index: 1;
+}
+
+.etapa {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    flex: 1;
+    max-width: 200px;
+}
+
+.etapa-icono {
+    width: 70px;
+    height: 70px;
+    background: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    box-shadow: var(--shadow-lg);
+    border: 3px solid var(--primary-blue);
+    transition: all 0.3s ease;
+}
+
+.etapa:hover .etapa-icono {
+    transform: scale(1.1);
+    border-color: var(--tech-purple);
+}
+
+.etapa-icono i {
+    font-size: 1.8rem;
+    color: var(--primary-blue);
+    transition: all 0.3s ease;
+}
+
+.etapa:hover .etapa-icono i {
+    color: var(--tech-purple);
+}
+
+.etapa-contenido h3 {
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.etapa-contenido p {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.etapa-flecha {
+    position: absolute;
+    top: 30px;
+    right: -40px;
+    color: var(--accent-red);
+    font-size: 1.5rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: translateX(0); opacity: 1; }
+    50% { transform: translateX(5px); opacity: 0.7; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+.diagrama-imagen {
+    text-align: center;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.diagrama-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-md);
+}
+
+.leyenda-diagrama {
+    background: linear-gradient(135deg, rgba(128, 90, 213, 0.1) 0%, rgba(49, 130, 206, 0.1) 100%);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--tech-purple);
+}
+
+.leyenda-diagrama p {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.leyenda-diagrama i {
+    color: var(--tech-purple);
+    font-size: 1.2rem;
+}
+
+.leyenda-diagrama strong {
+    color: var(--primary-blue);
+}
+
+/* Impacto General */
+.impacto-general {
+    padding: 6rem 0;
+    background: var(--light-bg);
+}
+
+.impacto-general h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.impacto-general h2 i {
+    color: var(--tech-purple);
+}
+
+.impacto-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.impacto-card {
+    background: var(--white);
+    padding: 3rem 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    transition: all 0.3s ease;
+    border-top: 6px solid transparent;
+}
+
+.impacto-card:nth-child(1) {
+    border-top-color: var(--accent-red);
+}
+
+.impacto-card:nth-child(2) {
+    border-top-color: var(--tech-cyan);
+}
+
+.impacto-card:nth-child(3) {
+    border-top-color: var(--tech-green);
+}
+
+.impacto-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.impacto-icono {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.impacto-card:hover .impacto-icono {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.impacto-icono i {
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.impacto-card h3 {
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.impacto-card ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.impacto-card li {
+    padding: 0.6rem 0;
+    color: var(--text-dark);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    border-bottom: 1px solid var(--light-bg);
+}
+
+.impacto-card li:last-child {
+    border-bottom: none;
+}
+
+.impacto-card li i {
+    color: var(--tech-green);
+    font-size: 0.9rem;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+}
+
+/* CTA Final */
+.industria-cta {
+    background: linear-gradient(135deg, var(--tech-purple) 0%, #1a365d 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.industria-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,0 1000,1000 0,1000"/></svg>');
+    background-size: cover;
+}
+
+.industria-cta .container {
+    position: relative;
+    z-index: 2;
+}
+
+.industria-cta h2 {
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    font-size: 2.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.industria-cta h2 i {
+    color: var(--accent-red);
+}
+
+.industria-cta p {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    padding: 1.2rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: none;
+    min-width: 220px;
+}
+
+.cta-button.primario {
+    background: var(--gradient-accent);
+    color: var(--white);
+    box-shadow: var(--shadow-md);
+}
+
+.cta-button.primario:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.cta-button.secundario {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.cta-button.secundario:hover {
+    background: var(--white);
+    color: var(--tech-purple);
+    transform: translateY(-5px);
+}
+
+/* Footer */
+footer {
+    background: var(--dark-blue);
+    color: var(--white);
+    text-align: center;
+    padding: 3rem 0;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-red), transparent);
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+footer p:last-child {
+    margin-bottom: 0;
+    opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .impacto-grid,
+    .beneficios-grid,
+    .iot-estadisticas,
+    .imagenes-cuadruple {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .diagrama-etapas {
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+    
+    .etapa {
+        flex: 0 0 calc(33.333% - 2rem);
+    }
+    
+    .etapa-flecha {
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+    .nav-links {
+        gap: 0.5rem;
+    }
+    
+    .nav-links > li > a {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.7rem;
+    }
+    
+    .industria-hero h1 {
+        font-size: 3rem;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .objetivo-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .impacto-grid,
+    .beneficios-grid,
+    .iot-estadisticas {
+        grid-template-columns: 1fr;
+    }
+    
+    .tecnologia-doble {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .imagenes-grid,
+    .imagenes-doble,
+    .imagenes-cuadruple {
+        grid-template-columns: 1fr;
+    }
+    
+    .imagen-item-grande {
+        grid-column: 1;
+    }
+    
+    .diagrama-etapas {
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+    }
+    
+    .etapa {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .etapa-flecha {
+        display: block;
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: rotate(90deg);
+        margin: 1rem 0;
+    }
+    
+    .impacto-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+    
+    .industria-hero {
+        padding: 10rem 0 5rem;
+    }
+    
+    .industria-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .industria-hero p {
+        font-size: 1.2rem;
+    }
+    
+    .tecnologia-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 2rem 1.5rem 1.5rem;
+    }
+    
+    .tecnologia-contenido {
+        padding: 0 1.5rem 2rem;
+    }
+    
+    .tecnologias h2,
+    .diagrama-integracion h2,
+    .impacto-general h2,
+    .industria-cta h2 {
+        font-size: 2.2rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-button {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .diagrama-container {
+        padding: 2rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .industria-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        padding: 0.8rem 1rem;
+    }
+    
+    .hero-subtitle p {
+        font-size: 0.9rem;
+    }
+    
+    .objetivo-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .tecnologia-titulo h3 {
+        font-size: 1.5rem;
+    }
+    
+    .tecnologia-card {
+        margin-bottom: 2rem;
+    }
+    
+    .impacto-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem 1rem;
+    }
+    
+    .impacto-icono {
+        margin-bottom: 1rem;
+    }
+    
+    .estadistica-valor {
+        font-size: 1.8rem;
+    }
+    
+    .beneficio-item {
+        padding: 1.5rem 1rem;
+    }
+    
+    .imagen-item {
+        height: auto;
+    }
+    
+    .tecnologia-img {
+        height: 180px;
+    }
+}
+
+
+body {
+    zoom: 0.89;
+}

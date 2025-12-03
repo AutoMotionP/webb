@@ -1,0 +1,1171 @@
+body {
+    zoom: 0.89;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-blue: #1a365d;
+    --dark-blue: #0d1b2a;
+    --accent-red: #e53e3e;
+    --light-bg: #f8fafc;
+    --white: #ffffff;
+    --text-dark: #2d3748;
+    --text-light: #718096;
+    --gradient-primary: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+    --gradient-accent: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+}
+
+body {
+    font-family: 'Inter', 'Arial', sans-serif;
+    line-height: 1.7;
+    color: var(--text-dark);
+    background: var(--white);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* HEADER PARA DESKTOP - OPTIMIZADO */
+header {
+    background: rgba(26, 54, 93, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px; /* Un poco más ancho para más espacio */
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo h2 {
+    color: var(--white);
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #fff 0%, #cbd5e0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* NAV LINKS PRINCIPAL - DESKTOP */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 0.8rem; /* Espacio más compacto */
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links > li > a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-links > li > a:hover {
+    color: var(--accent-red);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-links > li > a i {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.has-submenu:hover > a i {
+    transform: rotate(180deg);
+}
+
+/* SUBMENÚS - DESKTOP */
+.has-submenu {
+    position: relative;
+}
+
+.has-submenu .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    min-width: 220px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    z-index: 1001;
+    padding: 0.5rem 0;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.has-submenu .submenu li {
+    display: block;
+    margin: 0;
+}
+
+.has-submenu .submenu a {
+    color: var(--text-dark);
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #f0f0f0;
+    display: block;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.has-submenu .submenu a:hover {
+    background: var(--light-bg);
+    color: var(--accent-red);
+    padding-left: 1.5rem;
+}
+
+.has-submenu .submenu li:last-child a {
+    border-bottom: none;
+}
+
+/* Mostrar submenú al hover */
+.has-submenu:hover .submenu {
+    display: block;
+}
+
+/* Flecha indicadora del submenú */
+.has-submenu .submenu::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 20px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid var(--white);
+}
+
+/* Línea inferior en hover (opcional) */
+.nav-links > li > a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent-red);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-links > li > a:hover::after {
+    width: 70%;
+}
+
+/* Para el enlace activo (si quieres resaltar la página actual) */
+.nav-links > li > a.active {
+    color: var(--accent-red);
+    background: rgba(229, 62, 62, 0.1);
+}
+
+.nav-links > li > a.active::after {
+    width: 70%;
+}
+/* CSS para complementar el JS */
+.has-submenu .submenu {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links > li > a {
+    transition: all 0.3s ease;
+}
+
+/* Para el efecto de scroll */
+header {
+    transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+/* Para el resaltado activo */
+.nav-links > li > a.active-submenu {
+    color: var(--accent-red) !important;
+    background: rgba(229, 62, 62, 0.1) !important;
+}
+/* Hero Logística */
+.logistica-hero {
+    background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.85)), url('../img/logistica-fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--white);
+    text-align: center;
+    padding: 15rem 0 8rem;
+    margin-top: 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logistica-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #fff 0%, #e2e8f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logistica-hero p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* Diagrama de Carretera - VERSIÓN VERTICAL */
+.diagrama-carretera {
+    padding: 6rem 0;
+    background: var(--light-bg);
+    position: relative;
+}
+
+.diagrama-carretera h2 {
+    text-align: center;
+    margin-bottom: 4rem;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.diagrama-carretera h2 i {
+    color: var(--accent-red);
+}
+
+.carretera-container {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.carretera-linea {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 100px;
+    width: 4px;
+    background: linear-gradient(to bottom, 
+        var(--primary-blue) 0%, 
+        var(--accent-red) 50%, 
+        #38a169 100%);
+    z-index: 1;
+    border-radius: 2px;
+}
+
+.carretera-linea::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 10px,
+        var(--white) 10px,
+        var(--white) 20px
+    );
+}
+
+.etapa {
+    position: relative;
+    margin-bottom: 4rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 3rem;
+    z-index: 2;
+    min-height: 120px;
+}
+
+.etapa-icono {
+    width: 100px;
+    height: 100px;
+    background: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-lg);
+    border: 5px solid var(--primary-blue);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    z-index: 3;
+}
+
+.etapa-icono i {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    transition: all 0.3s ease;
+}
+
+.etapa-contenido {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    flex: 1;
+    border-left: 6px solid var(--primary-blue);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.etapa-contenido h3 {
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Flechas internas entre detalles */
+.etapa-detalles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    position: relative;
+}
+
+.detalle-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 1rem 1.2rem;
+    background: var(--light-bg);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Flecha entre detalles en la misma fila */
+.detalle-item:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-red);
+    font-weight: bold;
+    font-size: 1.2rem;
+    opacity: 0.7;
+}
+
+.detalle-item i {
+    color: var(--accent-red);
+    font-size: 1.2rem;
+    width: 25px;
+    text-align: center;
+}
+
+.detalle-item span {
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Efectos hover mejorados */
+.etapa:hover .etapa-icono {
+    transform: scale(1.15);
+    border-color: var(--accent-red);
+    box-shadow: 0 15px 30px rgba(229, 62, 62, 0.4);
+}
+
+.etapa:hover .etapa-icono i {
+    color: var(--accent-red);
+    transform: scale(1.1);
+}
+
+.etapa:hover .etapa-contenido {
+    transform: translateX(10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border-left-color: var(--accent-red);
+}
+
+.detalle-item:hover {
+    background: var(--primary-blue);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.detalle-item:hover i,
+.detalle-item:hover span {
+    color: var(--white);
+}
+
+/* Flujos Detallados */
+.flujos-detallados {
+    padding: 6rem 0;
+    background: var(--white);
+}
+
+.flujos-detallados h2 {
+    text-align: center;
+    margin-bottom: 4rem;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.flujos-detallados h2 i {
+    color: var(--accent-red);
+}
+
+.flujos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.flujo-categoria {
+    background: var(--light-bg);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+}
+
+.flujo-categoria:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.flujo-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-blue);
+}
+
+.flujo-header i {
+    font-size: 2.5rem;
+    color: var(--accent-red);
+}
+
+.flujo-header h3 {
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Flujo Físico - Proceso Horizontal */
+.flujo-proceso {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.proceso-paso {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+    flex: 1;
+}
+
+.paso-icono {
+    width: 60px;
+    height: 60px;
+    background: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+    border: 2px solid var(--primary-blue);
+}
+
+.paso-icono i {
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+}
+
+.paso-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.paso-texto strong {
+    color: var(--primary-blue);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.paso-texto span {
+    color: var(--text-light);
+    font-size: 0.7rem;
+}
+
+.proceso-flecha {
+    color: var(--accent-red);
+    font-size: 1.2rem;
+}
+
+/* Flujo Informativo - Lista Vertical */
+.flujo-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 1rem 1.5rem;
+    background: var(--white);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.info-item:hover {
+    transform: translateX(10px);
+    box-shadow: var(--shadow-sm);
+}
+
+.info-item i {
+    color: var(--accent-red);
+    font-size: 1.2rem;
+    width: 25px;
+    text-align: center;
+}
+
+.info-item span {
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+/* Participantes Simétricos */
+.participantes-simetricos {
+    padding: 6rem 0;
+    background: var(--light-bg);
+}
+
+.participantes-simetricos h2 {
+    text-align: center;
+    margin-bottom: 4rem;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.participantes-simetricos h2 i {
+    color: var(--accent-red);
+}
+
+.participantes-grid-simetrico {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+}
+
+.participante-card-sim {
+    background: var(--white);
+    padding: 3rem 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    transition: all 0.3s ease;
+    border-top: 4px solid var(--primary-blue);
+}
+
+.participante-card-sim:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-top-color: var(--accent-red);
+}
+
+.participante-icono-sim {
+    font-size: 3.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.participante-card-sim:hover .participante-icono-sim {
+    color: var(--accent-red);
+    transform: scale(1.1);
+}
+
+.participante-card-sim h3 {
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.participante-card-sim ul {
+    list-style: none;
+    text-align: center;
+}
+
+.participante-card-sim li {
+    padding: 0.6rem 0;
+    color: var(--text-light);
+    border-bottom: 1px solid #e2e8f0;
+    position: relative;
+}
+
+.participante-card-sim li:before {
+    content: '•';
+    position: absolute;
+    left: -15px;
+    color: var(--accent-red);
+    font-weight: bold;
+}
+
+.participante-card-sim li:last-child {
+    border-bottom: none;
+}
+
+/* Tecnologías */
+.tecnologias {
+    padding: 6rem 0;
+    background: var(--white);
+}
+
+.tecnologias h2 {
+    text-align: center;
+    margin-bottom: 4rem;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.tecnologias h2 i {
+    color: var(--accent-red);
+}
+
+.tecnologias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.tecnologia-item {
+    background: var(--white);
+    padding: 2.5rem 1.5rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.tecnologia-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-blue);
+}
+
+.tecnologia-item i {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.tecnologia-item h4 {
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.tecnologia-item p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* Explicación */
+.explicacion {
+    padding: 6rem 0;
+    background: var(--light-bg);
+}
+
+.explicacion h2 {
+    text-align: center;
+    margin-bottom: 4rem;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.explicacion h2 i {
+    color: var(--accent-red);
+}
+
+.explicacion-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.texto-explicativo {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+}
+
+.texto-explicativo p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+.estadisticas {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.estadistica-item {
+    background: var(--white);
+    padding: 2rem 1.5rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.estadistica-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.estadistica-item i {
+    font-size: 2.5rem;
+    color: var(--accent-red);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.estadistica-item h3 {
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.estadistica-item p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* Propuestas Industria 4.0 */
+.propuestas-industria {
+    padding: 6rem 0;
+    background: var(--white);
+}
+
+.propuestas-industria h2 {
+    text-align: center;
+    margin-bottom: 4rem;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.propuestas-industria h2 i {
+    color: var(--accent-red);
+}
+
+.propuestas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+}
+
+.propuesta-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.propuesta-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+}
+
+.propuesta-imagen {
+    flex: 0 0 auto;
+    min-height: 200px;
+    max-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--light-bg);
+    padding: 1.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.propuesta-imagen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255,255,255,0.1) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.1) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.1) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.propuesta-img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.propuesta-card:hover .propuesta-img {
+    transform: scale(1.05);
+}
+
+.propuesta-content {
+    padding: 2.5rem 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.propuesta-content h3 {
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.propuesta-content h3 i {
+    color: var(--accent-red);
+}
+
+.propuesta-content p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    flex: 1;
+}
+
+.propuesta-content ul {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.propuesta-content li {
+    padding: 0.5rem 0;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.propuesta-content li i {
+    color: var(--accent-red);
+    font-size: 0.8rem;
+}
+
+.beneficio {
+    background: #f0fff4;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid #38a169;
+    font-style: italic;
+    color: var(--text-dark);
+    margin-top: auto;
+}
+
+/* Estilos para propuesta con imagen al lado */
+.propuesta-con-imagen-lateral {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.propuesta-card-sin-foto {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    padding: 3rem;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.propuesta-card-sin-foto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+}
+
+.imagen-lateral {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--light-bg);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    height: 100%;
+    min-height: 300px;
+}
+
+.lateral-img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.imagen-lateral:hover .lateral-img {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background: var(--dark-blue);
+    color: var(--white);
+    text-align: center;
+    padding: 3rem 0;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+footer p:last-child {
+    margin-bottom: 0;
+    opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .logistica-hero {
+        padding: 8rem 0 4rem;
+    }
+    
+    .logistica-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    /* Diagrama vertical responsive */
+    .carretera-linea {
+        left: 50px;
+    }
+    
+    .etapa {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    .etapa-icono {
+        width: 80px;
+        height: 80px;
+        align-self: center;
+    }
+    
+    .etapa-icono i {
+        font-size: 2rem;
+    }
+    
+    .etapa-detalles {
+        grid-template-columns: 1fr;
+    }
+    
+    .detalle-item:not(:last-child)::after {
+        display: none;
+    }
+    
+    .etapa-contenido {
+        padding: 2rem 1.5rem;
+    }
+    
+    /* Resto del responsive */
+    .flujos-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .flujo-proceso {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .proceso-flecha {
+        transform: rotate(90deg);
+    }
+    
+    .participantes-grid-simetrico {
+        grid-template-columns: 1fr;
+    }
+    
+    .explicacion-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .tecnologias-grid,
+    .propuestas-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .propuesta-con-imagen-lateral {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .propuesta-card-sin-foto {
+        padding: 2rem 1.5rem;
+    }
+    
+    .imagen-lateral {
+        min-height: 250px;
+        order: -1;
+    }
+    
+    section {
+        padding: 4rem 0;
+    }
+    
+    h2 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .logistica-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .carretera-linea {
+        left: 30px;
+    }
+    
+    .etapa-icono {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .etapa-icono i {
+        font-size: 1.8rem;
+    }
+    
+    .participante-card-sim,
+    .tecnologia-item,
+    .propuesta-content {
+        padding: 2rem 1.5rem;
+    }
+    
+    .estadisticas {
+        gap: 1.5rem;
+    }
+    
+    .imagen-lateral {
+        min-height: 200px;
+    }
+}
+

@@ -1,0 +1,1103 @@
+/* SERVICIO - CSS COMPLETO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-blue: #1a365d;
+    --dark-blue: #0d1b2a;
+    --accent-red: #e53e3e;
+    --light-bg: #f8fafc;
+    --white: #ffffff;
+    --text-dark: #2d3748;
+    --text-light: #718096;
+    --gradient-primary: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+    --gradient-accent: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --border-radius: 16px;
+    --excelente-color: #38a169;
+    --bueno-color: #3182ce;
+    --destacado-color: #d69e2e;
+}
+
+body {
+    font-family: 'Inter', 'Arial', sans-serif;
+    line-height: 1.7;
+    color: var(--text-dark);
+    background: var(--white);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* HEADER PARA DESKTOP - OPTIMIZADO */
+header {
+    background: rgba(26, 54, 93, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px; /* Un poco más ancho para más espacio */
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo h2 {
+    color: var(--white);
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #fff 0%, #cbd5e0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* NAV LINKS PRINCIPAL - DESKTOP */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 0.8rem; /* Espacio más compacto */
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links > li > a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-links > li > a:hover {
+    color: var(--accent-red);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-links > li > a i {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.has-submenu:hover > a i {
+    transform: rotate(180deg);
+}
+
+/* SUBMENÚS - DESKTOP */
+.has-submenu {
+    position: relative;
+}
+
+.has-submenu .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    min-width: 220px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    z-index: 1001;
+    padding: 0.5rem 0;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.has-submenu .submenu li {
+    display: block;
+    margin: 0;
+}
+
+.has-submenu .submenu a {
+    color: var(--text-dark);
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #f0f0f0;
+    display: block;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.has-submenu .submenu a:hover {
+    background: var(--light-bg);
+    color: var(--accent-red);
+    padding-left: 1.5rem;
+}
+
+.has-submenu .submenu li:last-child a {
+    border-bottom: none;
+}
+
+/* Mostrar submenú al hover */
+.has-submenu:hover .submenu {
+    display: block;
+}
+
+/* Flecha indicadora del submenú */
+.has-submenu .submenu::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 20px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid var(--white);
+}
+
+/* Línea inferior en hover (opcional) */
+.nav-links > li > a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent-red);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-links > li > a:hover::after {
+    width: 70%;
+}
+
+/* Para el enlace activo (si quieres resaltar la página actual) */
+.nav-links > li > a.active {
+    color: var(--accent-red);
+    background: rgba(229, 62, 62, 0.1);
+}
+
+.nav-links > li > a.active::after {
+    width: 70%;
+}
+/* CSS para complementar el JS */
+.has-submenu .submenu {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links > li > a {
+    transition: all 0.3s ease;
+}
+
+/* Para el efecto de scroll */
+header {
+    transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+/* Para el resaltado activo */
+.nav-links > li > a.active-submenu {
+    color: var(--accent-red) !important;
+    background: rgba(229, 62, 62, 0.1) !important;
+}
+
+/* Hero Servicio CON FONDO */
+.servicio-hero {
+    background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.85)), url('../img/fondoser.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--white);
+    text-align: center;
+    padding: 15rem 0 8rem;
+    margin-top: 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.servicio-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
+    background-size: cover;
+    z-index: 1;
+}
+
+.servicio-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.servicio-hero h1 {
+    font-size: 3.8rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #fff 0%, #e2e8f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.servicio-hero h1 i {
+    font-size: 3.5rem;
+    color: var(--accent-red);
+}
+
+.servicio-hero p {
+    font-size: 1.4rem;
+    opacity: 0.9;
+    font-weight: 300;
+    max-width: 700px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Objetivo */
+.objetivo {
+    padding: 5rem 0;
+    background: var(--white);
+}
+
+.objetivo-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    background: var(--light-bg);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+}
+
+.objetivo-content:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.objetivo-icono {
+    width: 100px;
+    height: 100px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.objetivo-content:hover .objetivo-icono {
+    background: var(--gradient-accent);
+    transform: scale(1.1);
+}
+
+.objetivo-icono i {
+    font-size: 2.5rem;
+    color: var(--white);
+}
+
+.objetivo-texto h2 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.objetivo-texto p {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Política de Servicio */
+.politica-servicio {
+    padding: 6rem 0;
+    background: var(--light-bg);
+}
+
+.politica-servicio h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.politica-servicio h2 i {
+    color: var(--accent-red);
+}
+
+.politica-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
+.politica-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+}
+
+.politica-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    border-top: 6px solid var(--primary-blue);
+}
+
+.politica-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-top-color: var(--accent-red);
+}
+
+.politica-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--light-bg);
+}
+
+.politica-icono {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.politica-card:hover .politica-icono {
+    background: var(--gradient-accent);
+    transform: rotate(5deg);
+}
+
+.politica-icono i {
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.politica-header h3 {
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.politica-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.politica-item {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+}
+
+.item-icono {
+    width: 45px;
+    height: 45px;
+    background: var(--light-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.politica-item:hover .item-icono {
+    background: var(--accent-red);
+    transform: scale(1.1);
+}
+
+.item-icono i {
+    font-size: 1.2rem;
+    color: var(--primary-blue);
+    transition: all 0.3s ease;
+}
+
+.politica-item:hover .item-icono i {
+    color: var(--white);
+}
+
+.item-contenido h4 {
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.item-contenido p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Tiempos de Respuesta Especial */
+.tiempos-respuesta {
+    grid-column: span 1;
+}
+
+.tiempos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.tiempo-item {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: var(--light-bg);
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+}
+
+.tiempo-item:hover {
+    transform: translateY(-5px);
+    background: var(--primary-blue);
+}
+
+.tiempo-item:hover .tiempo-valor,
+.tiempo-item:hover .tiempo-descripcion h4,
+.tiempo-item:hover .tiempo-descripcion p {
+    color: var(--white);
+}
+
+.tiempo-valor {
+    margin-bottom: 0.8rem;
+}
+
+.numero {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent-red);
+    display: block;
+    line-height: 1;
+}
+
+.unidad {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.tiempo-descripcion h4 {
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.tiempo-descripcion p {
+    color: var(--text-light);
+    font-size: 0.85rem;
+}
+
+/* Estrategias de Fidelización */
+.fidelizacion {
+    padding: 6rem 0;
+    background: var(--white);
+}
+
+.fidelizacion h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.fidelizacion h2 i {
+    color: var(--accent-red);
+}
+
+.fidelizacion-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
+.estrategias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.estrategia-card {
+    background: var(--white);
+    padding: 2.5rem 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.estrategia-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-red);
+}
+
+.estrategia-icono {
+    width: 70px;
+    height: 70px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.estrategia-card:hover .estrategia-icono {
+    background: var(--gradient-accent);
+    transform: scale(1.1) rotate(5deg);
+}
+
+.estrategia-icono i {
+    font-size: 1.8rem;
+    color: var(--white);
+}
+
+.estrategia-card h3 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    min-height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.estrategia-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Indicadores de Desempeño - TABLA CHINGONA */
+.indicadores {
+    padding: 6rem 0;
+    background: var(--light-bg);
+}
+
+.indicadores h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.indicadores h2 i {
+    color: var(--accent-red);
+}
+
+.indicadores-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
+.tabla-container {
+    overflow-x: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 3rem;
+}
+
+.tabla-indicadores {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.tabla-indicadores thead {
+    background: var(--gradient-primary);
+}
+
+.tabla-indicadores th {
+    color: var(--white);
+    font-weight: 600;
+    text-align: left;
+    padding: 1.5rem 2rem;
+    font-size: 1.1rem;
+    border-bottom: 3px solid var(--accent-red);
+}
+
+.tabla-indicadores th i {
+    margin-right: 10px;
+    color: var(--accent-red);
+}
+
+.tabla-indicadores tbody tr {
+    transition: all 0.3s ease;
+    border-bottom: 1px solid var(--light-bg);
+}
+
+.tabla-indicadores tbody tr:hover {
+    background: rgba(26, 54, 93, 0.05);
+    transform: translateX(5px);
+}
+
+.tabla-indicadores td {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 0.95rem;
+}
+
+.tabla-indicadores td strong {
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
+.resultado {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-align: center;
+    min-width: 80px;
+}
+
+.resultado.excelente {
+    background: rgba(56, 161, 105, 0.1);
+    color: var(--excelente-color);
+    border: 2px solid var(--excelente-color);
+}
+
+.resultado.bueno {
+    background: rgba(49, 130, 206, 0.1);
+    color: var(--bueno-color);
+    border: 2px solid var(--bueno-color);
+}
+
+.resultado.destacado {
+    background: rgba(214, 158, 46, 0.1);
+    color: var(--destacado-color);
+    border: 2px solid var(--destacado-color);
+}
+
+.leyenda-indicadores {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.leyenda-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.color-leyenda {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.color-leyenda.excelente {
+    background: var(--excelente-color);
+}
+
+.color-leyenda.bueno {
+    background: var(--bueno-color);
+}
+
+.color-leyenda.destacado {
+    background: var(--destacado-color);
+}
+
+/* CTA Final */
+.servicio-cta {
+    background: var(--gradient-primary);
+    color: var(--white);
+    text-align: center;
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.servicio-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,0 1000,1000 0,1000"/></svg>');
+    background-size: cover;
+}
+
+.servicio-cta .container {
+    position: relative;
+    z-index: 2;
+}
+
+.servicio-cta h2 {
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    font-size: 2.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.servicio-cta h2 i {
+    color: var(--accent-red);
+}
+
+.servicio-cta p {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    padding: 1.2rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: none;
+    min-width: 220px;
+}
+
+.cta-button.primario {
+    background: var(--gradient-accent);
+    color: var(--white);
+    box-shadow: var(--shadow-md);
+}
+
+.cta-button.primario:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.cta-button.secundario {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.cta-button.secundario:hover {
+    background: var(--white);
+    color: var(--primary-blue);
+    transform: translateY(-5px);
+}
+
+/* Footer */
+footer {
+    background: var(--dark-blue);
+    color: var(--white);
+    text-align: center;
+    padding: 3rem 0;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-red), transparent);
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+footer p:last-child {
+    margin-bottom: 0;
+    opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .politica-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .tiempos-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .nav-links {
+        gap: 1rem;
+    }
+    
+    .servicio-hero h1 {
+        font-size: 3rem;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .objetivo-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .politica-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .estrategias-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .tiempos-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .servicio-hero {
+        padding: 10rem 0 5rem;
+    }
+    
+    .servicio-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .servicio-hero p {
+        font-size: 1.2rem;
+    }
+    
+    .politica-servicio h2,
+    .fidelizacion h2,
+    .indicadores h2,
+    .servicio-cta h2 {
+        font-size: 2.2rem;
+    }
+    
+    .estrategias-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tabla-indicadores th,
+    .tabla-indicadores td {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .resultado {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.85rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .servicio-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .objetivo-content {
+        padding: 2rem 1.5rem;
+    }
+    
+    .politica-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .estrategia-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .tiempo-item {
+        padding: 1.2rem 1rem;
+    }
+    
+    .numero {
+        font-size: 2rem;
+    }
+}
+
+body {
+    zoom: 0.89;
+}
+
+/* Alternativa: Tiempos en layout vertical */
+.tiempos-respuesta {
+    grid-column: span 1;
+    width: 100%;
+}
+
+.tiempos-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.tiempo-item {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: var(--light-bg);
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.tiempo-valor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+    flex-shrink: 0;
+}
+
+.numero {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent-red);
+    line-height: 1;
+}
+
+.unidad {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.tiempo-descripcion {
+    text-align: left;
+    flex-grow: 1;
+}
+
+.tiempo-descripcion h4 {
+    color: var(--primary-blue);
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.tiempo-descripcion p {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}

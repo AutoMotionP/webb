@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/logo.jpg">
+    <title>Productos - AutoMotion Parts</title>
+    <link rel="stylesheet" href="css/productos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+    <nav>
+        <div class="logo">
+            <h2>AutoMotion Parts</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            
+            <!-- Submenú Productos -->
+           <li class="has-submenu">
+                <a href="productos.html">Catalogo <i class="fas fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="envase.html">Packaging</a></li>
+                    <li><a href="cubicaje.html">Cubicaje</a></li>
+                </ul>
+            </li>
+            
+            <!-- Submenú Logística -->
+            <li class="has-submenu">
+                <a href="logistica.html">Logística <i class="fas fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="cadena.html">Cadena de Suministros</a></li>
+                    <li><a href="costos.html">Costos Logísticos</a></li>
+                    <li><a href="logisitica.html">Logística Integral</a></li>
+                </ul>
+            </li>
+            
+            <!-- Submenú Innovación -->
+            <li class="has-submenu">
+                <a href="4.0.html">Innovación <i class="fas fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="4.0.html">Industria 4.0</a></li>
+                    <li><a href="modelo.html">Modelo Vogel</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="servicio.html">Servicio</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <!-- Hero Productos Mejorado -->
+    <section class="producto-hero">
+        <div class="container">
+            <h1><i class="fas fa-microchip"></i> Portafolio de Productos</h1>
+            <p>Componentes automotrices de alta tecnología fabricados en México</p>
+        </div>
+    </section>
+
+    <!-- Selector de Productos con Íconos -->
+    <section class="selector-productos">
+        <div class="container">
+            <div class="selector-grid">
+                <div class="selector-card" data-producto="arnes">
+                    <div class="selector-icono">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Arnés Automotriz</h3>
+                    <p>Sistemas de cableado premium</p>
+                    <div class="selector-flecha">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                
+                <div class="selector-card" data-producto="sensor">
+                    <div class="selector-icono">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Sensor ABS</h3>
+                    <p>Precisión y seguridad en frenado</p>
+                    <div class="selector-flecha">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                
+                <div class="selector-card" data-producto="motor">
+                    <div class="selector-icono">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Módulo Electrónico</h3>
+                    <p>Control inteligente vehicular</p>
+                    <div class="selector-flecha">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido Dinámico del Producto -->
+    <div id="contenido-producto">
+        <!-- El contenido se cargará dinámicamente aquí -->
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 AutoMotion Parts S.A. de C.V.</p>
+            <p>Componentes automotrices de calidad internacional</p>
+        </div>
+    </footer>
+
+    <script src="js/productos.js"></script>
+    <script src="js/todos.js"></script>
+</body>
+</html>

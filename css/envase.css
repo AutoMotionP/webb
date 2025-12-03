@@ -850,3 +850,491 @@ body {
         font-size: 1.3rem;
     }
 }
+/* ============================================
+   TABLA COMPARATIVA CHIDA
+   ============================================ */
+
+.tabla-descripcion {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tabla-container {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    padding: 2rem;
+    margin-bottom: 3rem;
+    border: 1px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.tabla-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-red), #38a169);
+}
+
+.tabla-wrapper {
+    overflow-x: auto;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.tabla-empaque {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 900px;
+}
+
+.tabla-empaque thead {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #2c5282 100%);
+    color: var(--white);
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+
+.tabla-empaque th {
+    padding: 1.5rem 1rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tabla-empaque th:last-child {
+    border-right: none;
+}
+
+.tabla-empaque th i {
+    font-size: 1.2rem;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.tabla-empaque tbody tr {
+    border-bottom: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.tabla-empaque tbody tr:hover {
+    background: #f8fafc;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.tabla-empaque tbody tr:last-child {
+    border-bottom: none;
+}
+
+.tabla-empaque td {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Columnas específicas */
+.col-producto { width: 22%; }
+.col-empaque { width: 20%; }
+.col-costo { width: 15%; }
+.col-proteccion { width: 15%; }
+.col-eficiencia { width: 15%; }
+.col-reciclable { width: 13%; }
+
+/* Estilos para celdas */
+.celda-producto {
+    text-align: left !important;
+}
+
+.producto-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.producto-icono-tabla {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--light-bg) 0%, #e2e8f0 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.producto-icono-tabla i {
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+}
+
+.producto-nombre {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.producto-nombre strong {
+    color: var(--primary-blue);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.producto-codigo {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.celda-empaque {
+    color: var(--text-dark);
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* Costo */
+.celda-costo {
+    font-weight: 700;
+}
+
+.celda-costo.destacado {
+    background: linear-gradient(135deg, rgba(56, 161, 105, 0.1) 0%, rgba(56, 161, 105, 0.05) 100%);
+    border-radius: 8px;
+}
+
+.costo-contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.costo-valor {
+    font-size: 1.4rem;
+    color: var(--primary-blue);
+    font-weight: 800;
+}
+
+.costo-moneda {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.costo-etiqueta {
+    background: var(--accent-red);
+    color: white;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 50px;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+/* Niveles de protección y eficiencia */
+.nivel-proteccion, .nivel-eficiencia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.nivel-barra, .eficiencia-barra {
+    width: 100%;
+    height: 10px;
+    background: #e2e8f0;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.nivel-progreso, .eficiencia-progreso {
+    height: 100%;
+    background: linear-gradient(90deg, #38a169, #68d391);
+    border-radius: 5px;
+    transition: width 0.6s ease;
+}
+
+.nivel-medio .nivel-progreso,
+.nivel-medio .eficiencia-progreso {
+    background: linear-gradient(90deg, #d69e2e, #ecc94b);
+}
+
+.nivel-alto .nivel-progreso,
+.nivel-alto .eficiencia-progreso {
+    background: linear-gradient(90deg, #3182ce, #63b3ed);
+}
+
+.nivel-muy-alto .nivel-progreso,
+.nivel-muy-alto .eficiencia-progreso {
+    background: linear-gradient(90deg, var(--accent-red), #fc8181);
+}
+
+.nivel-texto, .eficiencia-texto {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.nivel-medio .nivel-texto,
+.nivel-medio .eficiencia-texto {
+    color: #d69e2e;
+}
+
+.nivel-alto .nivel-texto,
+.nivel-alto .eficiencia-texto {
+    color: #3182ce;
+}
+
+.nivel-muy-alto .nivel-texto,
+.nivel-muy-alto .eficiencia-texto {
+    color: var(--accent-red);
+}
+
+/* Badge de reciclable */
+.reciclable-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.reciclable-si {
+    background: rgba(56, 161, 105, 0.1);
+    color: #38a169;
+    border: 2px solid rgba(56, 161, 105, 0.3);
+}
+
+.reciclable-parcial {
+    background: rgba(214, 158, 46, 0.1);
+    color: #d69e2e;
+    border: 2px solid rgba(214, 158, 46, 0.3);
+}
+
+.reciclable-badge i {
+    font-size: 1rem;
+}
+
+/* Fila especial para caja master */
+.master-row {
+    background: linear-gradient(135deg, rgba(26, 54, 93, 0.05) 0%, rgba(26, 54, 93, 0.02) 100%);
+    border-top: 2px solid var(--primary-blue);
+}
+
+.master-row:hover {
+    background: linear-gradient(135deg, rgba(26, 54, 93, 0.1) 0%, rgba(26, 54, 93, 0.05) 100%);
+}
+
+/* Leyenda de la tabla */
+.tabla-leyenda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    padding-top: 2rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.leyenda-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.leyenda-color {
+    width: 20px;
+    height: 10px;
+    border-radius: 5px;
+}
+
+.leyenda-color.nivel-muy-alto {
+    background: linear-gradient(90deg, var(--accent-red), #fc8181);
+}
+
+.leyenda-color.nivel-alto {
+    background: linear-gradient(90deg, #3182ce, #63b3ed);
+}
+
+.leyenda-color.nivel-medio {
+    background: linear-gradient(90deg, #d69e2e, #ecc94b);
+}
+
+.leyenda-badge {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid;
+}
+
+.leyenda-badge.reciclable-si {
+    background: rgba(56, 161, 105, 0.2);
+    border-color: #38a169;
+}
+
+.leyenda-badge.reciclable-parcial {
+    background: rgba(214, 158, 46, 0.2);
+    border-color: #d69e2e;
+}
+
+/* ============================================
+   IMAGEN DE JUSTIFICACIÓN CON TÍTULO
+   ============================================ */
+
+.imagen-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    justify-content: center;
+}
+
+.imagen-header i {
+    font-size: 1.8rem;
+    color: var(--accent-red);
+}
+
+.imagen-header h3 {
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.imagen-contenedor {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s ease;
+}
+
+.imagen-contenedor:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.imagen-leyenda {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(26, 54, 93, 0.9));
+    color: var(--white);
+    padding: 1.5rem;
+}
+
+.imagen-leyenda p {
+    margin: 0;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.imagen-leyenda i {
+    font-size: 1.2rem;
+    color: #ecc94b;
+}
+
+/* ============================================
+   RESPONSIVE PARA TABLA
+   ============================================ */
+
+@media (max-width: 992px) {
+    .tabla-container {
+        padding: 1.5rem;
+    }
+    
+    .tabla-empaque th,
+    .tabla-empaque td {
+        padding: 1.2rem 0.8rem;
+    }
+    
+    .producto-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+    }
+    
+    .producto-icono-tabla {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tabla-container {
+        padding: 1rem;
+        margin-left: -1rem;
+        margin-right: -1rem;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .tabla-descripcion {
+        padding: 0 1rem;
+    }
+    
+    .tabla-leyenda {
+        gap: 1rem;
+        justify-content: flex-start;
+    }
+    
+    .imagen-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .imagen-header h3 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tabla-empaque th i {
+        display: block;
+        margin: 0 auto 5px;
+    }
+    
+    .tabla-empaque th span {
+        display: block;
+        font-size: 0.8rem;
+    }
+    
+    .costo-valor {
+        font-size: 1.2rem;
+    }
+    
+    .reciclable-badge {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .imagen-leyenda {
+        padding: 1rem;
+    }
+    
+    .imagen-leyenda p {
+        font-size: 0.9rem;
+    }
+}

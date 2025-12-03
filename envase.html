@@ -10,47 +10,47 @@
 </head>
 <body>
     <header>
-    <nav>
-        <div class="logo">
-            <h2>AutoMotion Parts</h2>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            
-            <!-- Submenú Productos -->
-            <li class="has-submenu">
-                <a href="productos.html">Catalogo <i class="fas fa-chevron-down"></i></a>
-                <ul class="submenu">
-                    <li><a href="productos.html">Productos</a></li>
-                    <li><a href="envase.html">Packaging</a></li>
-                    <li><a href="cubicaje.html">Cubicaje</a></li>
-                </ul>
-            </li>
-            
-            <!-- Submenú Logística -->
-            <li class="has-submenu">
-                <a href="logistica.html">Logística <i class="fas fa-chevron-down"></i></a>
-                <ul class="submenu">
-                    <li><a href="cadena.html">Cadena de Suministros</a></li>
-                    <li><a href="costos.html">Costos Logísticos</a></li>
-                    <li><a href="logisitica.html">Logística Integral</a></li>
-                </ul>
-            </li>
-            
-            <!-- Submenú Innovación -->
-            <li class="has-submenu">
-                <a href="4.0.html">Innovación <i class="fas fa-chevron-down"></i></a>
-                <ul class="submenu">
-                    <li><a href="4.0.html">Industria 4.0</a></li>
-                    <li><a href="modelo.html">Modelo Vogel</a></li>
-                </ul>
-            </li>
-            
-            <li><a href="servicio.html">Servicio</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
-</header>
+        <nav>
+            <div class="logo">
+                <h2>AutoMotion Parts</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                
+                <!-- Submenú Productos -->
+                <li class="has-submenu">
+                    <a href="productos.html">Catalogo <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="envase.html" class="active">Packaging</a></li>
+                        <li><a href="cubicaje.html">Cubicaje</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Submenú Logística -->
+                <li class="has-submenu">
+                    <a href="logistica.html">Logística <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="cadena.html">Cadena de Suministros</a></li>
+                        <li><a href="costos.html">Costos Logísticos</a></li>
+                        <li><a href="logisitica.html">Logística Integral</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Submenú Innovación -->
+                <li class="has-submenu">
+                    <a href="4.0.html">Innovación <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="4.0.html">Industria 4.0</a></li>
+                        <li><a href="modelo.html">Modelo Vogel</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="servicio.html">Servicio</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <!-- Hero Envase CON FONDO -->
     <section class="envase-hero">
@@ -210,12 +210,255 @@
         </div>
     </section>
 
-    <!-- Tabla Comparativa -->
+    <!-- Tabla Comparativa - DISEÑO CHIDO -->
     <section class="tabla-comparativa">
         <div class="container">
             <h2><i class="fas fa-chart-bar"></i> Costo y Eficiencia del Empaque</h2>
-            <div class="tabla-content">
-                <img src="img/tabla.jpg" alt="Tabla comparativa de costos y eficiencia" class="tabla-img">
+            <p class="tabla-descripcion">Comparativa detallada de costos, protección y sostenibilidad por producto</p>
+            
+            <div class="tabla-container">
+                <div class="tabla-wrapper">
+                    <table class="tabla-empaque">
+                        <thead>
+                            <tr>
+                                <th class="col-producto">
+                                    <i class="fas fa-cube"></i>
+                                    <span>Producto</span>
+                                </th>
+                                <th class="col-empaque">
+                                    <i class="fas fa-box-open"></i>
+                                    <span>Empaque</span>
+                                </th>
+                                <th class="col-costo">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <span>Costo Unitario</span>
+                                </th>
+                                <th class="col-proteccion">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Nivel de Protección</span>
+                                </th>
+                                <th class="col-eficiencia">
+                                    <i class="fas fa-shipping-fast"></i>
+                                    <span>Eficiencia Logística</span>
+                                </th>
+                                <th class="col-reciclable">
+                                    <i class="fas fa-recycle"></i>
+                                    <span>Reciclable</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Arnés Automotriz -->
+                            <tr class="producto-row" data-producto="arnes">
+                                <td class="celda-producto">
+                                    <div class="producto-info">
+                                        <div class="producto-icono-tabla">
+                                            <i class="fas fa-bolt"></i>
+                                        </div>
+                                        <div class="producto-nombre">
+                                            <strong>Arnés Automotriz</strong>
+                                            <span class="producto-codigo">REF: AM-001</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="celda-empaque">
+                                    Bolsa PEBD + caja corrugado
+                                </td>
+                                <td class="celda-costo destacado">
+                                    <div class="costo-contenedor">
+                                        <span class="costo-valor">$6.50</span>
+                                        <span class="costo-moneda">MXN</span>
+                                    </div>
+                                    <div class="costo-etiqueta">Más económico</div>
+                                </td>
+                                <td class="celda-proteccion">
+                                    <div class="nivel-proteccion nivel-medio">
+                                        <div class="nivel-barra">
+                                            <div class="nivel-progreso" style="width: 60%"></div>
+                                        </div>
+                                        <span class="nivel-texto">Medio</span>
+                                    </div>
+                                </td>
+                                <td class="celda-eficiencia">
+                                    <div class="nivel-eficiencia nivel-alto">
+                                        <div class="eficiencia-barra">
+                                            <div class="eficiencia-progreso" style="width: 85%"></div>
+                                        </div>
+                                        <span class="eficiencia-texto">Alto</span>
+                                    </div>
+                                </td>
+                                <td class="celda-reciclable">
+                                    <div class="reciclable-badge reciclable-si">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Sí</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Sensor ABS -->
+                            <tr class="producto-row" data-producto="sensor">
+                                <td class="celda-producto">
+                                    <div class="producto-info">
+                                        <div class="producto-icono-tabla">
+                                            <i class="fas fa-tachometer-alt"></i>
+                                        </div>
+                                        <div class="producto-nombre">
+                                            <strong>Sensor ABS</strong>
+                                            <span class="producto-codigo">REF: SA-002</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="celda-empaque">
+                                    Bolsa ESD + caja microcorrugado
+                                </td>
+                                <td class="celda-costo">
+                                    <div class="costo-contenedor">
+                                        <span class="costo-valor">$9.80</span>
+                                        <span class="costo-moneda">MXN</span>
+                                    </div>
+                                </td>
+                                <td class="celda-proteccion">
+                                    <div class="nivel-proteccion nivel-alto">
+                                        <div class="nivel-barra">
+                                            <div class="nivel-progreso" style="width: 80%"></div>
+                                        </div>
+                                        <span class="nivel-texto">Alto</span>
+                                    </div>
+                                </td>
+                                <td class="celda-eficiencia">
+                                    <div class="nivel-eficiencia nivel-medio">
+                                        <div class="eficiencia-barra">
+                                            <div class="eficiencia-progreso" style="width: 65%"></div>
+                                        </div>
+                                        <span class="eficiencia-texto">Medio</span>
+                                    </div>
+                                </td>
+                                <td class="celda-reciclable">
+                                    <div class="reciclable-badge reciclable-parcial">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                        <span>Parcial</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Módulo Electrónico -->
+                            <tr class="producto-row" data-producto="modulo">
+                                <td class="celda-producto">
+                                    <div class="producto-info">
+                                        <div class="producto-icono-tabla">
+                                            <i class="fas fa-microchip"></i>
+                                        </div>
+                                        <div class="producto-nombre">
+                                            <strong>Módulo Electrónico</strong>
+                                            <span class="producto-codigo">REF: ME-003</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="celda-empaque">
+                                    Caja rígida + espuma EPE + ESD
+                                </td>
+                                <td class="celda-costo">
+                                    <div class="costo-contenedor">
+                                        <span class="costo-valor">$18.40</span>
+                                        <span class="costo-moneda">MXN</span>
+                                    </div>
+                                </td>
+                                <td class="celda-proteccion">
+                                    <div class="nivel-proteccion nivel-muy-alto">
+                                        <div class="nivel-barra">
+                                            <div class="nivel-progreso" style="width: 95%"></div>
+                                        </div>
+                                        <span class="nivel-texto">Muy alto</span>
+                                    </div>
+                                </td>
+                                <td class="celda-eficiencia">
+                                    <div class="nivel-eficiencia nivel-medio">
+                                        <div class="eficiencia-barra">
+                                            <div class="eficiencia-progreso" style="width: 70%"></div>
+                                        </div>
+                                        <span class="eficiencia-texto">Medio</span>
+                                    </div>
+                                </td>
+                                <td class="celda-reciclable">
+                                    <div class="reciclable-badge reciclable-parcial">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                        <span>Parcial</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Caja Master / Tarima -->
+                            <tr class="producto-row master-row" data-producto="master">
+                                <td class="celda-producto">
+                                    <div class="producto-info">
+                                        <div class="producto-icono-tabla">
+                                            <i class="fas fa-pallet"></i>
+                                        </div>
+                                        <div class="producto-nombre">
+                                            <strong>Caja Master / Tarima</strong>
+                                            <span class="producto-codigo">Embalaje Terciario</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="celda-empaque">
+                                    Corrugado doble + stretch
+                                </td>
+                                <td class="celda-costo">
+                                    <div class="costo-contenedor">
+                                        <span class="costo-valor">$42.00</span>
+                                        <span class="costo-moneda">MXN</span>
+                                    </div>
+                                </td>
+                                <td class="celda-proteccion">
+                                    <div class="nivel-proteccion nivel-muy-alto">
+                                        <div class="nivel-barra">
+                                            <div class="nivel-progreso" style="width: 100%"></div>
+                                        </div>
+                                        <span class="nivel-texto">Muy alto</span>
+                                    </div>
+                                </td>
+                                <td class="celda-eficiencia">
+                                    <div class="nivel-eficiencia nivel-muy-alto">
+                                        <div class="eficiencia-barra">
+                                            <div class="eficiencia-progreso" style="width: 95%"></div>
+                                        </div>
+                                        <span class="eficiencia-texto">Muy alto</span>
+                                    </div>
+                                </td>
+                                <td class="celda-reciclable">
+                                    <div class="reciclable-badge reciclable-si">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Sí</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Leyenda de la tabla -->
+                <div class="tabla-leyenda">
+                    <div class="leyenda-item">
+                        <div class="leyenda-color nivel-muy-alto"></div>
+                        <span>Muy alto</span>
+                    </div>
+                    <div class="leyenda-item">
+                        <div class="leyenda-color nivel-alto"></div>
+                        <span>Alto</span>
+                    </div>
+                    <div class="leyenda-item">
+                        <div class="leyenda-color nivel-medio"></div>
+                        <span>Medio</span>
+                    </div>
+                    <div class="leyenda-item">
+                        <div class="leyenda-badge reciclable-si"></div>
+                        <span>Reciclable</span>
+                    </div>
+                    <div class="leyenda-item">
+                        <div class="leyenda-badge reciclable-parcial"></div>
+                        <span>Parcialmente reciclable</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -264,8 +507,18 @@
                     <p>Las espumas EPE son reutilizables como material protector.</p>
                 </div>
             </div>
+            
+            <!-- Imagen de Justificación con Título -->
             <div class="imagen-justificacion">
-                <img src="img/justificacion.jpg" alt="Justificación técnica del empaque" class="justificacion-img">
+                <div class="imagen-header">
+                    <i class="fas fa-camera"></i>
+                    <h3>Ejemplo de Etiqueta OEM para Exportación</h3>
+                </div>
+                <div class="imagen-contenedor">
+                    <img src="img/justificacion.jpg" alt="Ejemplo de etiqueta OEM para exportación automotriz" class="justificacion-img">
+                    <div class="imagen-leyenda">
+                    </div>
+                </div>
             </div>
         </div>
     </section>

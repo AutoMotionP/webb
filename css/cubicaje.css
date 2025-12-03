@@ -1,0 +1,1487 @@
+/* ============================================
+   CUBICAJE - CSS COMPLETO
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-blue: #1a365d;
+    --dark-blue: #0d1b2a;
+    --accent-red: #e53e3e;
+    --tech-green: #38a169;
+    --tech-cyan: #319795;
+    --light-bg: #f8fafc;
+    --white: #ffffff;
+    --text-dark: #2d3748;
+    --text-light: #718096;
+    --gradient-primary: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+    --gradient-accent: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --border-radius: 16px;
+}
+
+body {
+    font-family: 'Inter', 'Arial', sans-serif;
+    line-height: 1.7;
+    color: var(--text-dark);
+    background: var(--white);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ============================================
+   HEADER (igual que otras páginas)
+   ============================================ */
+
+header {
+    background: rgba(26, 54, 93, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo h2 {
+    color: var(--white);
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #fff 0%, #cbd5e0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 0.8rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links > li > a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-links > li > a:hover {
+    color: var(--accent-red);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-links > li > a.active {
+    color: var(--accent-red);
+    background: rgba(229, 62, 62, 0.1);
+}
+
+.nav-links > li > a i {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.has-submenu:hover > a i {
+    transform: rotate(180deg);
+}
+
+.has-submenu {
+    position: relative;
+}
+
+.has-submenu .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    min-width: 220px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    z-index: 1001;
+    padding: 0.5rem 0;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.has-submenu .submenu li {
+    display: block;
+    margin: 0;
+}
+
+.has-submenu .submenu a {
+    color: var(--text-dark);
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #f0f0f0;
+    display: block;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.has-submenu .submenu a:hover {
+    background: var(--light-bg);
+    color: var(--accent-red);
+    padding-left: 1.5rem;
+}
+
+.has-submenu .submenu a.active {
+    color: var(--accent-red);
+    background: rgba(229, 62, 62, 0.1);
+}
+
+.has-submenu .submenu li:last-child a {
+    border-bottom: none;
+}
+
+.has-submenu:hover .submenu {
+    display: block;
+}
+
+.has-submenu .submenu::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 20px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid var(--white);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.cubicaje-hero {
+    background: linear-gradient(135deg, rgba(26, 54, 93, 0.9) 0%, rgba(45, 55, 72, 0.9) 100%), url('../img/cubicaje/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    padding: 8rem 0 4rem;
+    margin-top: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cubicaje-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
+    background-size: cover;
+    z-index: 1;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #fff 0%, #e2e8f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.hero-content h1 i {
+    font-size: 3rem;
+    color: var(--accent-red);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+    text-align: center;
+}
+
+.hero-intro {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 2rem;
+}
+
+.hero-intro p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+.nota-importante {
+    background: rgba(229, 62, 62, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-red);
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.nota-importante i {
+    color: var(--accent-red);
+    font-size: 1.5rem;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+}
+
+.nota-importante p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.nota-importante strong {
+    color: var(--white);
+}
+
+/* ============================================
+   TEMAS DE PRODUCTOS
+   ============================================ */
+
+.tema-producto {
+    padding: 6rem 0;
+    position: relative;
+}
+
+.tema-producto:nth-child(even) {
+    background: var(--light-bg);
+}
+
+.tema-producto:nth-child(odd) {
+    background: var(--white);
+}
+
+/* Alternar colores para cada tema */
+.modulo-electrico .tema-header {
+    border-left: 6px solid var(--tech-cyan);
+}
+
+.arnes-automotriz .tema-header {
+    border-left: 6px solid var(--accent-red);
+}
+
+.sensores-abs .tema-header {
+    border-left: 6px solid var(--tech-green);
+}
+
+.tema-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding-left: 1.5rem;
+}
+
+.tema-icono {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.tema-producto:hover .tema-icono {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.modulo-electrico .tema-icono {
+    background: linear-gradient(135deg, #319795 0%, #4fd1c7 100%);
+}
+
+.arnes-automotriz .tema-icono {
+    background: var(--gradient-accent);
+}
+
+.sensores-abs .tema-icono {
+    background: linear-gradient(135deg, #38a169 0%, #68d391 100%);
+}
+
+.tema-icono i {
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.tema-titulo h2 {
+    color: var(--primary-blue);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.tema-descripcion {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+
+/* ============================================
+   SUBTEMAS (Cubicaje Aéreo y Marítimo)
+   ============================================ */
+
+.subtemas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.subtema-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    padding: 2rem;
+    transition: all 0.3s ease;
+    border-top: 4px solid transparent;
+}
+
+.modulo-electrico .subtema-card {
+    border-top-color: var(--tech-cyan);
+}
+
+.arnes-automotriz .subtema-card {
+    border-top-color: var(--accent-red);
+}
+
+.sensores-abs .subtema-card {
+    border-top-color: var(--tech-green);
+}
+
+.subtema-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.subtema-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.subtema-icono {
+    width: 50px;
+    height: 50px;
+    background: var(--light-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.subtema-card:hover .subtema-icono {
+    background: var(--primary-blue);
+}
+
+.subtema-card:hover .subtema-icono i {
+    color: var(--white);
+}
+
+.subtema-icono i {
+    font-size: 1.2rem;
+    color: var(--primary-blue);
+}
+
+.subtema-header h3 {
+    color: var(--primary-blue);
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+
+.subtema-info p {
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: center;
+    margin: 0;
+}
+/* ============================================
+   IMAGEN PRINCIPAL - AJUSTADA
+   ============================================ */
+
+.imagen-principal {
+    margin-bottom: 3rem;
+}
+
+.imagen-container {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.4s ease;
+    background: var(--light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    max-height: 400px;
+}
+
+.imagen-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.imagen-grande {
+    max-width: 100%;
+    max-height: 400px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    transition: all 0.4s ease;
+    padding: 1rem;
+}
+
+.imagen-container:hover .imagen-grande {
+    transform: scale(1.03);
+}
+
+.imagen-leyenda {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(26, 54, 93, 0.9));
+    color: var(--white);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.imagen-leyenda i {
+    color: var(--accent-red);
+    font-size: 1.2rem;
+}
+
+.imagen-leyenda span {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* ============================================
+   SUBTEMAS - AJUSTADAS
+   ============================================ */
+
+.subtema-imagen {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    background: var(--light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+    max-height: 200px;
+    padding: 0.5rem;
+}
+
+.subtema-imagen img {
+    max-width: 100%;
+    max-height: 180px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+.subtema-card:hover .subtema-imagen img {
+    transform: scale(1.05);
+}
+
+.imagen-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(26, 54, 93, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.subtema-card:hover .imagen-overlay {
+    opacity: 1;
+}
+
+.imagen-overlay span {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--accent-red);
+    border-radius: 20px;
+}
+
+/* ============================================
+   CASO FICTICIO - AJUSTADO
+   ============================================ */
+
+.caso-imagen {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: var(--light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px;
+    max-height: 300px;
+    padding: 1rem;
+}
+
+.caso-imagen img {
+    max-width: 100%;
+    max-height: 280px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.caso-leyenda {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(26, 54, 93, 0.85);
+    color: var(--white);
+    padding: 1rem;
+    text-align: center;
+}
+
+.caso-leyenda p {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* ============================================
+   VISUALIZACIÓN - AJUSTADA
+   ============================================ */
+
+.visualizacion-imagen {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    background: var(--light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+    max-height: 200px;
+    padding: 0.5rem;
+    flex-shrink: 0;
+}
+
+.visualizacion-imagen img {
+    max-width: 100%;
+    max-height: 180px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+.visualizacion-card:hover .visualizacion-imagen img {
+    transform: scale(1.05);
+}
+
+.visualizacion-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(26, 54, 93, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.visualizacion-card:hover .visualizacion-overlay {
+    opacity: 1;
+}
+
+.ver-detalle {
+    background: var(--accent-red);
+    color: var(--white);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.ver-detalle:hover {
+    background: var(--white);
+    color: var(--accent-red);
+    transform: scale(1.05);
+}
+
+/* ============================================
+   APROVECHAMIENTO - AJUSTADO
+   ============================================ */
+
+.aprovechamiento-imagen {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    background: var(--light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    max-height: 350px;
+    padding: 1rem;
+}
+
+.aprovechamiento-imagen img {
+    max-width: 100%;
+    max-height: 320px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.aprovechamiento-leyenda {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: var(--white);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.aprovechamiento-leyenda i {
+    color: var(--accent-red);
+    font-size: 1.2rem;
+}
+
+.aprovechamiento-leyenda span {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* ============================================
+   CASO FICTICIO
+   ============================================ */
+
+.caso-ficticio {
+    margin-bottom: 4rem;
+}
+
+.caso-header {
+    margin-bottom: 1.5rem;
+}
+
+.caso-header h3 {
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.caso-header i {
+    color: var(--accent-red);
+}
+
+.caso-imagen {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+
+.caso-leyenda {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(26, 54, 93, 0.85);
+    color: var(--white);
+    padding: 1rem;
+    text-align: center;
+}
+
+.caso-leyenda p {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* ============================================
+   VISUALIZACIÓN DE CUBICAJE
+   ============================================ */
+
+.visualizacion-seccion {
+    margin-top: 4rem;
+}
+
+.visualizacion-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.visualizacion-header .header-icono {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.visualizacion-header:hover .header-icono {
+    transform: scale(1.1) rotate(5deg);
+    background: var(--gradient-accent);
+}
+
+.visualizacion-header .header-icono i {
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.visualizacion-header h2 {
+    color: var(--primary-blue);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.visualizacion-desc {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.visualizacion-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.visualizacion-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    padding: 2rem;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.visualizacion-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.modulo-electrico .visualizacion-card {
+    border-top: 6px solid var(--tech-cyan);
+}
+
+.arnes-automotriz .visualizacion-card {
+    border-top: 6px solid var(--accent-red);
+}
+
+.sensores-abs .visualizacion-card {
+    border-top: 6px solid var(--tech-green);
+}
+
+.visualizacion-titulo {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.visualizacion-titulo h3 {
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.contenedor-tag {
+    display: inline-block;
+    background: var(--light-bg);
+    color: var(--text-dark);
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.visualizacion-imagen {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    height: 200px;
+    flex-shrink: 0;
+}
+
+
+.visualizacion-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(26, 54, 93, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.visualizacion-card:hover .visualizacion-overlay {
+    opacity: 1;
+}
+
+.ver-detalle {
+    background: var(--accent-red);
+    color: var(--white);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.ver-detalle:hover {
+    background: var(--white);
+    color: var(--accent-red);
+    transform: scale(1.05);
+}
+
+.visualizacion-info {
+    margin-top: auto;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.8rem;
+    padding: 0.5rem;
+    background: var(--light-bg);
+    border-radius: 8px;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-item i {
+    color: var(--primary-blue);
+    font-size: 1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.info-item span {
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* ============================================
+   APROVECHAMIENTO VOLUMÉTRICO
+   ============================================ */
+
+.aprovechamiento-volumetrico {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    color: var(--white);
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.aprovechamiento-volumetrico::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,0 1000,1000 0,1000"/></svg>');
+    background-size: cover;
+    z-index: 1;
+}
+
+.aprovechamiento-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 2;
+}
+
+.aprovechamiento-header .header-icono {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.aprovechamiento-header:hover .header-icono {
+    transform: scale(1.1);
+    background: var(--accent-red);
+}
+
+.aprovechamiento-header .header-icono i {
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.aprovechamiento-header h2 {
+    color: var(--white);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.aprovechamiento-desc {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.aprovechamiento-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.aprovechamiento-imagen {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.aprovechamiento-leyenda {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: var(--white);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.aprovechamiento-leyenda i {
+    color: var(--accent-red);
+    font-size: 1.2rem;
+}
+
+.aprovechamiento-leyenda span {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.aprovechamiento-info h3 {
+    color: var(--white);
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.aprovechamiento-info h3 i {
+    color: var(--tech-green);
+}
+
+.beneficios-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.beneficio-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.beneficio-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+.beneficio-icono {
+    width: 50px;
+    height: 50px;
+    background: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.beneficio-icono i {
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+}
+
+.beneficio-item h4 {
+    color: var(--white);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.beneficio-item p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* ============================================
+   LIGHTBOX
+   ============================================ */
+
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background: var(--accent-red);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.lightbox-close:hover {
+    background: var(--white);
+    color: var(--accent-red);
+    transform: scale(1.1);
+}
+
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background: var(--accent-red);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+.lightbox-image {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+    display: block;
+}
+
+.lightbox-caption {
+    padding: 1.5rem;
+    background: var(--white);
+    border-top: 1px solid #e2e8f0;
+}
+
+.lightbox-title {
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.lightbox-desc {
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+footer {
+    background: var(--dark-blue);
+    color: var(--white);
+    text-align: center;
+    padding: 3rem 0;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-red), transparent);
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+footer p:last-child {
+    margin-bottom: 0;
+    opacity: 0.6;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1200px) {
+    .visualizacion-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .beneficios-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 992px) {
+    .nav-links {
+        gap: 0.5rem;
+    }
+    
+    .nav-links > li > a {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.7rem;
+    }
+    
+    .cubicaje-hero {
+        padding: 7rem 0 3rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.8rem;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .hero-intro {
+        padding: 2rem;
+    }
+    
+    .subtemas-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .visualizacion-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .aprovechamiento-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .tema-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+        padding-left: 0;
+        border-left: none;
+        border-top: 4px solid var(--primary-blue);
+    }
+    
+    .modulo-electrico .tema-header {
+        border-top-color: var(--tech-cyan);
+    }
+    
+    .arnes-automotriz .tema-header {
+        border-top-color: var(--accent-red);
+    }
+    
+    .sensores-abs .tema-header {
+        border-top-color: var(--tech-green);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+    
+    .cubicaje-hero {
+        padding: 6rem 0 2.5rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .tema-titulo h2 {
+        font-size: 2rem;
+    }
+    
+    .imagen-grande {
+        height: 300px;
+    }
+    
+    .subtema-imagen,
+    .visualizacion-imagen {
+        height: 180px;
+    }
+    
+    .caso-imagen img {
+        height: 250px;
+    }
+    
+    .aprovechamiento-imagen img {
+        height: 280px;
+    }
+    
+    .lightbox-content {
+        max-width: 95%;
+        max-height: 95%;
+    }
+    
+    .lightbox-prev,
+    .lightbox-next {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .cubicaje-hero {
+        padding: 5rem 0 2rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-intro {
+        padding: 1.5rem;
+    }
+    
+    .nota-importante {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .tema-producto {
+        padding: 4rem 0;
+    }
+    
+    .tema-titulo h2 {
+        font-size: 1.8rem;
+    }
+    
+    .visualizacion-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .aprovechamiento-header h2 {
+        font-size: 2rem;
+    }
+    
+    .beneficio-item {
+        padding: 1.2rem;
+    }
+    
+    .ver-detalle {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+    }
+}

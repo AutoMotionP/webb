@@ -668,111 +668,155 @@ section {
 }
 
 /* ============================================
-   RUTAS LOGÍSTICAS
+   RUTAS LOGÍSTICAS - GRANDES Y MEJORADAS
    ============================================ */
 
 .rutas-logisticas {
     background: var(--white);
+    padding: 6rem 0;
 }
 
 .rutas-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2.5rem;
-    margin-top: 3rem;
+    grid-template-columns: 1fr; /* UNA SOLA COLUMNA - MÁS ANCHAS */
+    gap: 3rem; /* Más espacio entre cuadros */
+    max-width: 1000px; /* Limitar ancho máximo */
+    margin: 3rem auto 0; /* Centrar */
 }
 
 .ruta-card {
     background: var(--white);
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow-md);
-    padding: 2.5rem;
-    transition: all 0.3s ease;
-    border-top: 6px solid var(--primary-blue);
-    height: 100%;
+    box-shadow: var(--shadow-lg); /* Sombra más pronunciada */
+    padding: 3rem; /* Más padding - más grande */
+    transition: all 0.4s ease;
+    border-top: 8px solid var(--primary-blue); /* Borde más grueso */
+    min-height: 380px; /* Altura mínima más grande */
     display: flex;
     flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de brillo al hover */
+.ruta-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.1), 
+        transparent);
+    transition: left 0.7s;
+}
+
+.ruta-card:hover::before {
+    left: 100%;
 }
 
 .ruta-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-15px) scale(1.02); /* Efecto más pronunciado */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* Sombra más grande */
 }
 
+/* Colores para cada tipo de ruta */
 .ruta-card:nth-child(1) {
-    border-top-color: #ecc94b; /* Amarillo para marítima */
+    border-top-color: #ecc94b; /* Amarillo dorado para marítima */
+    background: linear-gradient(145deg, #ffffff 0%, #fff9e6 100%);
 }
 
 .ruta-card:nth-child(2) {
     border-top-color: #9f7aea; /* Púrpura para aérea */
+    background: linear-gradient(145deg, #ffffff 0%, #f5f0ff 100%);
 }
 
 .ruta-card:nth-child(3) {
     border-top-color: #38a169; /* Verde para multimodal */
+    background: linear-gradient(145deg, #ffffff 0%, #f0fff4 100%);
 }
 
+/* HEADER MÁS GRANDE */
 .ruta-header {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    gap: 2rem; /* Más espacio */
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
 }
 
+/* ICONO MÁS GRANDE */
 .ruta-icono {
-    width: 70px;
-    height: 70px;
+    width: 90px; /* Más grande */
+    height: 90px; /* Más grande */
     background: linear-gradient(135deg, var(--primary-blue) 0%, #2c5282 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .ruta-card:hover .ruta-icono {
-    transform: scale(1.1) rotate(5deg);
+    transform: scale(1.15) rotate(10deg); /* Rotación más pronunciada */
 }
 
-.ruta-card:nth-child(1):hover .ruta-icono {
+/* Colores específicos para cada icono */
+.ruta-card:nth-child(1) .ruta-icono {
     background: linear-gradient(135deg, #d69e2e 0%, #ecc94b 100%);
 }
 
-.ruta-card:nth-child(2):hover .ruta-icono {
+.ruta-card:nth-child(2) .ruta-icono {
     background: linear-gradient(135deg, #805ad5 0%, #9f7aea 100%);
 }
 
-.ruta-card:nth-child(3):hover .ruta-icono {
+.ruta-card:nth-child(3) .ruta-icono {
     background: linear-gradient(135deg, #38a169 0%, #68d391 100%);
 }
 
 .ruta-icono i {
-    font-size: 1.8rem;
+    font-size: 2.5rem; /* Icono más grande */
     color: var(--white);
 }
 
+/* TÍTULO MÁS GRANDE */
 .ruta-titulo h3 {
     color: var(--primary-blue);
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
+    font-size: 1.8rem; /* Texto más grande */
+    font-weight: 800; /* Más negrita */
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
 }
 
 .ruta-subtitulo {
     color: var(--text-light);
-    font-size: 0.9rem;
+    font-size: 1.1rem; /* Subtítulo más grande */
     font-weight: 500;
+    display: block;
+    padding: 0.3rem 1rem;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 20px;
+    display: inline-block;
 }
 
-/* Destinos */
+/* DESTINOS MÁS VISIBLES */
 .ruta-destinos {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--light-bg);
-    padding: 1.5rem;
+    background: linear-gradient(90deg, 
+        rgba(26, 54, 93, 0.05) 0%, 
+        rgba(229, 62, 62, 0.05) 50%, 
+        rgba(56, 161, 105, 0.05) 100%);
+    padding: 2rem 2.5rem; /* Más padding */
     border-radius: var(--border-radius);
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .destino-origen,
@@ -780,152 +824,171 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 15px; /* Más espacio */
     text-align: center;
     flex: 1;
 }
 
 .destino-origen i,
 .destino-final i {
-    font-size: 1.5rem;
+    font-size: 2rem; /* Iconos más grandes */
     color: var(--accent-red);
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .destino-origen span,
 .destino-final span {
-    font-weight: 600;
+    font-weight: 700; /* Más negrita */
     color: var(--text-dark);
-    font-size: 0.9rem;
+    font-size: 1.1rem; /* Texto más grande */
 }
 
 .destino-flecha {
-    padding: 0 1rem;
+    padding: 0 2rem;
 }
 
 .destino-flecha i {
-    font-size: 1.5rem;
+    font-size: 2.5rem; /* Flecha más grande */
     color: var(--primary-blue);
-    animation: pulse 2s infinite;
+    animation: moveRightLeft 3s infinite ease-in-out;
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.1); opacity: 0.7; }
-    100% { transform: scale(1); opacity: 1; }
+@keyframes moveRightLeft {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
 }
 
-/* Flujo Multimodal */
-.ruta-flujo {
-    margin-bottom: 2rem;
-}
-
+/* FLUJO MULTIMODAL MÁS VISIBLE */
 .flujo-etapas {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.5rem; /* Más espacio */
+    padding: 1.5rem;
+    background: var(--light-bg);
+    border-radius: var(--border-radius);
 }
 
 .etapa-flujo {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 15px; /* Más espacio */
     flex: 1;
     text-align: center;
+    transition: all 0.3s ease;
+}
+
+.etapa-flujo:hover {
+    transform: translateY(-5px);
 }
 
 .etapa-flujo i {
-    width: 50px;
-    height: 50px;
-    background: var(--light-bg);
+    width: 70px; /* Más grande */
+    height: 70px; /* Más grande */
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #2c5282 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
-    color: var(--primary-blue);
+    font-size: 1.5rem; /* Icono más grande */
+    color: var(--white);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
 .etapa-flujo:hover i {
-    background: var(--primary-blue);
-    color: var(--white);
+    background: var(--accent-red);
     transform: scale(1.1);
 }
 
 .etapa-flujo span {
-    font-size: 0.85rem;
+    font-size: 1rem; /* Texto más grande */
     font-weight: 600;
     color: var(--text-dark);
 }
 
 .flecha-flujo {
     color: var(--accent-red);
+    font-size: 1.5rem; /* Flechas más grandes */
 }
 
-/* Justificación */
+/* JUSTIFICACIÓN MÁS VISIBLE */
 .ruta-justificacion {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     flex-grow: 1;
 }
 
 .ruta-justificacion h4 {
     color: var(--primary-blue);
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
+    font-size: 1.3rem; /* Más grande */
+    margin-bottom: 1.2rem;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px; /* Más espacio */
+    font-weight: 700;
 }
 
 .ruta-justificacion h4 i {
     color: var(--success-green);
+    font-size: 1.2rem;
 }
 
 .ruta-justificacion ul {
     list-style: none;
-    padding: 0;
+    padding-left: 0;
 }
 
 .ruta-justificacion li {
-    padding: 0.5rem 0;
+    padding: 0.8rem 0; /* Más espacio */
     color: var(--text-dark);
     display: flex;
     align-items: flex-start;
-    gap: 10px;
+    gap: 12px; /* Más espacio */
+    font-size: 1.05rem; /* Texto más grande */
+    line-height: 1.5;
 }
 
 .ruta-justificacion li i {
     color: var(--success-green);
-    font-size: 0.9rem;
-    margin-top: 0.2rem;
+    font-size: 1rem;
+    margin-top: 0.3rem;
     flex-shrink: 0;
 }
 
-/* Nota */
+/* NOTA MÁS VISIBLE */
 .ruta-nota {
-    background: #fff5f5;
-    padding: 1.2rem;
-    border-radius: 8px;
-    border-left: 4px solid var(--accent-red);
-    margin-top: auto;
+    background: linear-gradient(135deg, #fff5f5 0%, #fff0f0 100%);
+    padding: 1.8rem; /* Más padding */
+    border-radius: 12px;
+    border-left: 6px solid var(--accent-red); /* Borde más grueso */
+    margin-top: auto; /* Empujar al fondo */
+    box-shadow: 0 4px 12px rgba(229, 62, 62, 0.1);
 }
 
 .ruta-nota p {
     margin: 0;
     display: flex;
     align-items: flex-start;
-    gap: 10px;
+    gap: 12px; /* Más espacio */
     color: #742a2a;
-    font-size: 0.95rem;
+    font-size: 1.05rem; /* Texto más grande */
+    line-height: 1.6;
 }
 
 .ruta-nota i {
     color: var(--accent-red);
-    margin-top: 0.2rem;
+    margin-top: 0.3rem;
     flex-shrink: 0;
+    font-size: 1.2rem; /* Icono más grande */
 }
 
 /* ============================================
@@ -961,89 +1024,6 @@ section {
     color: var(--primary-blue);
 }
 
-/* Diagrama */
-.estrategia-diagrama {
-    background: var(--white);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-lg);
-    padding: 2.5rem;
-    margin-bottom: 3rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.diagrama-titulo {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.diagrama-titulo h3 {
-    color: var(--primary-blue);
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-top: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.diagrama-titulo i {
-    color: var(--accent-red);
-    font-size: 1.5rem;
-}
-
-/* Niveles del diagrama */
-.diagrama-niveles {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.nivel {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1.5rem;
-    background: var(--light-bg);
-    border-radius: var(--border-radius);
-    transition: all 0.3s ease;
-}
-
-.nivel:hover {
-    transform: translateX(10px);
-    background: var(--white);
-    box-shadow: var(--shadow-md);
-}
-
-.nivel-icono {
-    width: 60px;
-    height: 60px;
-    background: var(--gradient-primary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.nivel-icono i {
-    font-size: 1.5rem;
-    color: var(--white);
-}
-
-.nivel-contenido h4 {
-    color: var(--primary-blue);
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    font-weight: 700;
-}
-
-.nivel-contenido p {
-    color: var(--text-light);
-    font-size: 0.95rem;
-    margin: 0;
-}
 
 /* Nivel de distribución */
 .nivel.distribucion {
@@ -2296,20 +2276,6 @@ header {
     50% { opacity: 0.7; }
 }
 
-/* Para mapa interactivo (si se implementa) */
-.mapa-punto {
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.mapa-punto:hover {
-    transform: scale(1.3);
-}
-
-.mapa-punto.active {
-    animation: pulse-glow 2s infinite;
-}
-
 /* ============================================
    LOADING STATES (opcional)
    ============================================ */
@@ -2384,3 +2350,158 @@ header {
         text-decoration: none !important;
     }
 }
+
+/* ============================================
+   RESPONSIVE PARA RUTAS GRANDES
+   ============================================ */
+
+@media (max-width: 1200px) {
+    .rutas-grid {
+        max-width: 900px;
+    }
+    
+    .ruta-card {
+        padding: 2.5rem;
+        min-height: 350px;
+    }
+    
+    .ruta-icono {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .ruta-icono i {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .rutas-grid {
+        grid-template-columns: 1fr; /* Una columna en tablet */
+        gap: 2.5rem;
+    }
+    
+    .ruta-card {
+        min-height: auto;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .ruta-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .ruta-destinos {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    .destino-flecha {
+        transform: rotate(90deg);
+        padding: 1rem 0;
+    }
+    
+    .destino-flecha i {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .ruta-card {
+        padding: 2rem;
+    }
+    
+    .ruta-titulo h3 {
+        font-size: 1.6rem;
+    }
+    
+    .ruta-icono {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .ruta-icono i {
+        font-size: 2rem;
+    }
+    
+    .ruta-destinos {
+        padding: 1.5rem;
+    }
+    
+    .destino-origen i,
+    .destino-final i {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    
+    .ruta-justificacion li {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .ruta-card {
+        padding: 1.5rem;
+    }
+    
+    .ruta-titulo h3 {
+        font-size: 1.4rem;
+    }
+    
+    .ruta-subtitulo {
+        font-size: 1rem;
+    }
+    
+    .ruta-destinos {
+        padding: 1.2rem;
+    }
+    
+    .destino-origen span,
+    .destino-final span {
+        font-size: 1rem;
+    }
+    
+    .flujo-etapas {
+        flex-direction: column;
+    }
+    
+    .flecha-flujo {
+        transform: rotate(90deg);
+    }
+}
+/* Agregar al final del archivo o donde manejes el hero */
+
+.hero-imagen-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.hero-imagen-fondo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4);
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+}
+
+.cadena-hero {
+    background: linear-gradient(135deg, rgba(26, 54, 93, 0.9) 0%, rgba(45, 55, 72, 0.9) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Eliminar el gradiente anterior */
+/* .cadena-hero { background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%); } */

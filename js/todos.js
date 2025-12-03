@@ -407,3 +407,73 @@ function openSubmenu(submenuId) {
         if (submenu) submenu.style.display = 'block';
     }
 }
+
+// ============================================
+// REDIRECCIÓN INTELIGENTE PARA CONTACTO
+// ============================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Seleccionar TODOS los enlaces de contacto
+    const contactLinks = document.querySelectorAll('a[href="#contacto"], .nav-links a[href="#contacto"]');
+    
+    contactLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevenir comportamiento por defecto
+            
+            // Verificar si estamos en index.html o no
+            const currentPage = window.location.pathname;
+            const isIndexPage = currentPage.includes('index.html') || currentPage.endsWith('/') || currentPage === '';
+            
+            if (isIndexPage) {
+                // Si ya estamos en index, solo hacer scroll
+                const contactSection = document.getElementById('contacto');
+                if (contactSection) {
+                    window.scrollTo({
+                        top: contactSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Resaltar la sección temporalmente
+                    highlightSection(contactSection);
+                }
+            } else {
+                // Si NO estamos en index, redirigir a index.html#contacto
+                // Guardar en localStorage para scroll automático después de carga
+                localStorage.setItem('scrollToContact', 'true');
+                window.location.href = 'index.html#contacto';
+            }
+        });
+    });
+    
+    // Función para resaltar sección
+    function highlightSection(section) {
+        section.style.transition = 'all 0.5s ease';
+        section.style.boxShadow = '0 0 0 4px rgba(229, 62, 62, 0.3), 0 10px 30px rgba(0,0,0,0.1)';
+        
+        setTimeout(() => {
+            section.style.boxShadow = '';
+        }, 2000);
+    }
+    
+    // Verificar si necesitamos hacer scroll después de cargar index.html
+    if (window.location.hash === '#contacto' || localStorage.getItem('scrollToContact') === 'true') {
+        // Pequeño delay para asegurar que la página se cargó
+        setTimeout(() => {
+            const contactSection = document.getElementById('contacto');
+            if (contactSection) {
+                window.scrollTo({
+                    top: contactSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                highlightSection(contactSection);
+                
+                // Limpiar localStorage
+                localStorage.removeItem('scrollToContact');
+                
+                // Actualizar URL sin recargar
+                history.replaceState(null, null, 'index.html#contacto');
+            }
+        }, 300);
+    }
+});

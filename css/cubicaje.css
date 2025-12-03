@@ -191,7 +191,7 @@ nav {
    ============================================ */
 
 .cubicaje-hero {
-    background: linear-gradient(135deg, rgba(26, 54, 93, 0.9) 0%, rgba(45, 55, 72, 0.9) 100%), url('../img/cubicaje/hero-bg.jpg');
+    background: linear-gradient(135deg, rgba(26, 54, 93, 0.9) 0%, rgba(45, 55, 72, 0.9) 100%), url('../img/fondocubi.jpg');
     background-size: cover;
     background-position: center;
     color: var(--white);
@@ -249,14 +249,17 @@ nav {
 }
 
 .hero-intro {
-    background: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.08) 0%,
+        rgba(255, 255, 255, 0.04) 100%
+    );
     padding: 3rem;
     border-radius: var(--border-radius);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     margin-bottom: 2rem;
 }
-
 .hero-intro p {
     font-size: 1.1rem;
     line-height: 1.8;

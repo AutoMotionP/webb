@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/logo.jpg">
+    <title>Cadena de Suministros - AutoMotion Parts</title>
+    <link rel="stylesheet" href="css/cadena.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h2>AutoMotion Parts</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                
+                <!-- Submenú Productos -->
+                <li class="has-submenu">
+                    <a href="productos.html">Catalogo <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="envase.html">Packaging</a></li>
+                        <li><a href="cubicaje.html">Cubicaje</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Submenú Logística -->
+                <li class="has-submenu">
+                    <a href="logistica.html">Logística <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="cadena.html" class="active">Cadena de Suministros</a></li>
+                        <li><a href="costos.html">Costos Logísticos</a></li>
+                        <li><a href="logisitica.html">Logística Integral</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Submenú Innovación -->
+                <li class="has-submenu">
+                    <a href="4.0.html">Innovación <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="4.0.html">Industria 4.0</a></li>
+                        <li><a href="modelo.html">Modelo Vogel</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="servicio.html">Servicio</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section con Mapa Grande -->
+    <section class="cadena-hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1><i class="fas fa-globe-americas"></i> Cadena de Suministro Internacional</h1>
+                <p class="hero-subtitle">Exportaciones desde México hacia Alemania, Francia y Polonia</p>
+                <div class="hero-intro">
+                    <p>En AutoMotion Parts nos dedicamos a la fabricación y exportación de arneses eléctricos, sensores ABS y módulos electrónicos para la industria automotriz. Nuestra cadena logística internacional está diseñada para garantizar eficiencia, trazabilidad y cumplimiento CE/RoHS, asegurando entregas confiables a plantas automotrices en Europa.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mapa Grande Completo -->
+        <div class="mapa-container">
+            <div class="mapa-wrapper">
+                <img src="img/sumimapa.png" alt="Mapa de Cadena de Suministro Internacional AutoMotion Parts" class="mapa-imagen">
+                <div class="mapa-leyenda">
+                    <div class="leyenda-item">
+                        <div class="leyenda-color proveedor"></div>
+                        <span>Proveedor</span>
+                    </div>
+                    <div class="leyenda-item">
+                        <div class="leyenda-color planta"></div>
+                        <span>Planta México</span>
+                    </div>
+                    <div class="leyenda-item">
+                        <div class="leyenda-color cliente"></div>
+                        <span>Cliente Europa</span>
+                    </div>
+                    <div class="leyenda-item">
+                        <div class="leyenda-linea ruta1"></div>
+                        <span>Ruta Marítima</span>
+                    </div>
+                    <div class="leyenda-item">
+                        <div class="leyenda-linea ruta2"></div>
+                        <span>Ruta Aérea</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nodos Logísticos -->
+    <section class="nodos-logisticos">
+        <div class="container">
+            <div class="seccion-header">
+                <div class="header-icono">
+                    <i class="fas fa-industry"></i>
+                </div>
+                <h2>Nuestros Nodos Logísticos</h2>
+                <p>Puntos estratégicos en nuestra cadena de suministro internacional</p>
+            </div>
+
+            <!-- Línea de tiempo conectada -->
+            <div class="linea-tiempo">
+                <!-- Nodo 1: Proveedor -->
+                <div class="nodo-card" data-nodo="1">
+                    <div class="nodo-marcador">
+                        <div class="marcador-numero">1</div>
+                        <div class="marcador-linea"></div>
+                    </div>
+                    <div class="nodo-contenido">
+                        <div class="nodo-header">
+                            <div class="nodo-icono">
+                                <i class="fas fa-truck-loading"></i>
+                            </div>
+                            <div class="nodo-titulo">
+                                <h3>Proveedor</h3>
+                                <span class="nodo-subtitulo">Origen de materiales</span>
+                            </div>
+                        </div>
+                        <div class="nodo-descripcion">
+                            <p>Trabajamos con proveedores certificados que nos suministran cobre, conectores, sensores y componentes electrónicos.</p>
+                        </div>
+                        <div class="nodo-tecnologia">
+                            <h4><i class="fas fa-microchip"></i> Tecnología aplicada</h4>
+                            <div class="tecnologia-tags">
+                                <span class="tag">IoT para rastreo</span>
+                                <span class="tag">Blockchain para certificaciones</span>
+                                <span class="tag">RPA para órdenes de compra</span>
+                                <span class="tag">Big Data para evaluación</span>
+                            </div>
+                        </div>
+                        <div class="nodo-control">
+                            <p><i class="fas fa-check-circle"></i> <strong>Control:</strong> Gestión por lote y cumplimiento CE/RoHS</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nodo 2: Planta -->
+                <div class="nodo-card" data-nodo="2">
+                    <div class="nodo-marcador">
+                        <div class="marcador-numero">2</div>
+                        <div class="marcador-linea"></div>
+                    </div>
+                    <div class="nodo-contenido">
+                        <div class="nodo-header">
+                            <div class="nodo-icono">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <div class="nodo-titulo">
+                                <h3>Planta de Fabricación</h3>
+                                <span class="nodo-subtitulo">Jalisco, México</span>
+                            </div>
+                        </div>
+                        <div class="nodo-descripcion">
+                            <p>En nuestra planta realizamos el ensamble de arneses, sensores y módulos electrónicos.</p>
+                        </div>
+                        <div class="nodo-actividades">
+                            <h4><i class="fas fa-tasks"></i> Actividades principales</h4>
+                            <div class="actividades-grid">
+                                <div class="actividad-item">
+                                    <i class="fas fa-cogs"></i>
+                                    <span>Ensamble</span>
+                                </div>
+                                <div class="actividad-item">
+                                    <i class="fas fa-vial"></i>
+                                    <span>Pruebas ICT/FT</span>
+                                </div>
+                                <div class="actividad-item">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>Control ESD</span>
+                                </div>
+                                <div class="actividad-item">
+                                    <i class="fas fa-qrcode"></i>
+                                    <span>Etiquetado CE/RoHS y QR</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nodo-tecnologia">
+                            <h4><i class="fas fa-microchip"></i> Tecnología 4.0</h4>
+                            <div class="tecnologia-tags">
+                                <span class="tag">IoT en líneas</span>
+                                <span class="tag">IA para control de calidad</span>
+                                <span class="tag">WMS básico</span>
+                                <span class="tag">Blockchain para pruebas</span>
+                                <span class="tag">RPA para reportes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nodo 3: Centro Distribución -->
+                <div class="nodo-card" data-nodo="3">
+                    <div class="nodo-marcador">
+                        <div class="marcador-numero">3</div>
+                        <div class="marcador-linea"></div>
+                    </div>
+                    <div class="nodo-contenido">
+                        <div class="nodo-header">
+                            <div class="nodo-icono">
+                                <i class="fas fa-warehouse"></i>
+                            </div>
+                            <div class="nodo-titulo">
+                                <h3>Centro de Distribución / Cross-Dock</h3>
+                                <span class="nodo-subtitulo">Consolidación y preparación</span>
+                            </div>
+                        </div>
+                        <div class="nodo-descripcion">
+                            <p>Nuestro centro permite la consolidación, verificación y preparación de mercancía bajo un modelo de crossdocking, reduciendo inventarios y acelerando los despachos.</p>
+                        </div>
+                        <div class="nodo-roles">
+                            <h4><i class="fas fa-user-tie"></i> Roles principales</h4>
+                            <div class="roles-lista">
+                                <div class="rol-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Recepción ASN</span>
+                                </div>
+                                <div class="rol-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Validación</span>
+                                </div>
+                                <div class="rol-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Asignación y ruteo por WMS</span>
+                                </div>
+                                <div class="rol-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Re-etiquetado</span>
+                                </div>
+                                <div class="rol-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Preparación de salida</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nodo-tecnologia">
+                            <h4><i class="fas fa-microchip"></i> Tecnología aplicada</h4>
+                            <div class="tecnologia-tags">
+                                <span class="tag">RFID/IoT</span>
+                                <span class="tag">IA para ruteo inteligente</span>
+                                <span class="tag">RPA documental</span>
+                                <span class="tag">Blockchain para trazabilidad</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nodo 4: Puerto/Terminal -->
+                <div class="nodo-card" data-nodo="4">
+                    <div class="nodo-marcador">
+                        <div class="marcador-numero">4</div>
+                        <div class="marcador-linea"></div>
+                    </div>
+                    <div class="nodo-contenido">
+                        <div class="nodo-header">
+                            <div class="nodo-icono">
+                                <i class="fas fa-ship"></i>
+                            </div>
+                            <div class="nodo-titulo">
+                                <h3>Puerto / Terminal</h3>
+                                <span class="nodo-subtitulo">Transporte marítimo/aéreo</span>
+                            </div>
+                        </div>
+                        <div class="nodo-descripcion">
+                            <p>Este nodo concentra nuestras operaciones de transporte marítimo y aéreo consolidado.</p>
+                        </div>
+                        <div class="nodo-actividades">
+                            <h4><i class="fas fa-tasks"></i> Actividades clave</h4>
+                            <div class="actividades-grid">
+                                <div class="actividad-item">
+                                    <i class="fas fa-clipboard-check"></i>
+                                    <span>Verificación</span>
+                                </div>
+                                <div class="actividad-item">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Gestión de booking</span>
+                                </div>
+                                <div class="actividad-item">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Protección ESD</span>
+                                </div>
+                                <div class="actividad-item">
+                                    <i class="fas fa-container-storage"></i>
+                                    <span>Carga en contenedor</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nodo-tecnologia">
+                            <h4><i class="fas fa-microchip"></i> Tecnología aplicada</h4>
+                            <div class="tecnologia-tags">
+                                <span class="tag">IoT en contenedores</span>
+                                <span class="tag">RPA para booking</span>
+                                <span class="tag">Blockchain en documentos B/L</span>
+                                <span class="tag">Big Data para análisis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nodo 5: Aduana -->
+                <div class="nodo-card" data-nodo="5">
+                    <div class="nodo-marcador">
+                        <div class="marcador-numero">5</div>
+                        <div class="marcador-linea"></div>
+                    </div>
+                    <div class="nodo-contenido">
+                        <div class="nodo-header">
+                            <div class="nodo-icono">
+                                <i class="fas fa-passport"></i>
+                            </div>
+                            <div class="nodo-titulo">
+                                <h3>Aduana</h3>
+                                <span class="nodo-subtitulo">Cumplimiento normativo</span>
+                            </div>
+                        </div>
+                        <div class="nodo-descripcion">
+                            <p>Gestionamos los procesos aduanales con altos estándares de ejecución para asegurar el cumplimiento normativo en origen y destino.</p>
+                        </div>
+                        <div class="nodo-actividades">
+                            <h4><i class="fas fa-tasks"></i> Actividades principales</h4>
+                            <div class="actividades-lista">
+                                <div class="actividad-simple">
+                                    <i class="fas fa-file-export"></i>
+                                    <span>Despacho aduanal</span>
+                                </div>
+                                <div class="actividad-simple">
+                                    <i class="fas fa-file-contract"></i>
+                                    <span>Revisión documental</span>
+                                </div>
+                                <div class="actividad-simple">
+                                    <i class="fas fa-gavel"></i>
+                                    <span>Validación de regulaciones</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nodo-tecnologia">
+                            <h4><i class="fas fa-microchip"></i> Tecnología aplicada</h4>
+                            <div class="tecnologia-tags">
+                                <span class="tag">RPA para pedimentos</span>
+                                <span class="tag">Blockchain para documentación</span>
+                                <span class="tag">IA para detectar errores</span>
+                                <span class="tag">Big Data para análisis de riesgo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nodo 6: Cliente -->
+                <div class="nodo-card" data-nodo="6">
+                    <div class="nodo-marcador">
+                        <div class="marcador-numero">6</div>
+                        <div class="marcador-linea"></div>
+                    </div>
+                    <div class="nodo-contenido">
+                        <div class="nodo-header">
+                            <div class="nodo-icono">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="nodo-titulo">
+                                <h3>Cliente</h3>
+                                <span class="nodo-subtitulo">Fabricantes automotrices en Europa</span>
+                            </div>
+                        </div>
+                        <div class="nodo-descripcion">
+                            <p>Entregamos directamente en planta bajo EXW o CIF, según los acuerdos comerciales.</p>
+                            <div class="paises-clientes">
+                                <span class="pais-badge"><i class="fas fa-flag"></i> Alemania</span>
+                                <span class="pais-badge"><i class="fas fa-flag"></i> Francia</span>
+                                <span class="pais-badge"><i class="fas fa-flag"></i> Polonia</span>
+                            </div>
+                        </div>
+                        <div class="nodo-tecnologia">
+                            <h4><i class="fas fa-microchip"></i> Tecnología aplicada</h4>
+                            <div class="tecnologia-tags">
+                                <span class="tag">QR/IoT para recepción</span>
+                                <span class="tag">IA para validaciones de calidad</span>
+                                <span class="tag">Blockchain para historiales</span>
+                            </div>
+                        </div>
+                        <div class="nodo-incoterms">
+                            <p><i class="fas fa-file-contract"></i> <strong>Incoterms:</strong> EXW Jalisco para compradores con logística consolidada. CIF Hamburgo y Havre marítimo consolidado, aéreo consolidado a Frankfurt y París.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nodo 7: Logística Inversa -->
+                <div class="nodo-card" data-nodo="7">
+                    <div class="nodo-marcador">
+                        <div class="marcador-numero">7</div>
+                        <div class="marcador-linea final"></div>
+                    </div>
+                    <div class="nodo-contenido">
+                        <div class="nodo-header">
+                            <div class="nodo-icono">
+                                <i class="fas fa-reply-all"></i>
+                            </div>
+                            <div class="nodo-titulo">
+                                <h3>Logística Inversa</h3>
+                                <span class="nodo-subtitulo">Devoluciones y garantías</span>
+                            </div>
+                        </div>
+                        <div class="nodo-descripcion">
+                            <p>Gestionamos devoluciones, garantías y retrabajos de forma controlada.</p>
+                        </div>
+                        <div class="nodo-control">
+                            <p><i class="fas fa-check-circle"></i> <strong>Control:</strong> Segregación por lote, protocolos ESD y autorizaciones mediante RPA.</p>
+                        </div>
+                        <div class="nodo-tecnologia">
+                            <h4><i class="fas fa-microchip"></i> Tecnología aplicada</h4>
+                            <div class="tecnologia-tags">
+                                <span class="tag">IoT para seguimiento</span>
+                                <span class="tag">IA para análisis de fallas</span>
+                                <span class="tag">Blockchain para trazabilidad inversa</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rutas Logísticas -->
+    <section class="rutas-logisticas">
+        <div class="container">
+            <div class="seccion-header">
+                <div class="header-icono">
+                    <i class="fas fa-route"></i>
+                </div>
+                <h2>Nuestras Rutas Logísticas</h2>
+                <p>Conectando México con Europa a través de rutas optimizadas</p>
+            </div>
+
+            <div class="rutas-grid">
+                <!-- Ruta 1 -->
+                <div class="ruta-card">
+                    <div class="ruta-header">
+                        <div class="ruta-icono">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <div class="ruta-titulo">
+                            <h3>Ruta 1 - Transporte Marítimo Consolidado (CIF)</h3>
+                            <span class="ruta-subtitulo">México → Puertos europeos</span>
+                        </div>
+                    </div>
+                    <div class="ruta-destinos">
+                        <div class="destino-origen">
+                            <i class="fas fa-flag"></i>
+                            <span>Origen: México</span>
+                        </div>
+                        <div class="destino-flecha">
+                            <i class="fas fa-long-arrow-alt-right"></i>
+                        </div>
+                        <div class="destino-final">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Destino: Hamburgo, Le Havre</span>
+                        </div>
+                    </div>
+                    <div class="ruta-justificacion">
+                        <h4><i class="fas fa-clipboard-check"></i> Justificación</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Alternativa más económica para cargas programadas</li>
+                            <li><i class="fas fa-check"></i> Óptima para la consolidación de sensores y módulos</li>
+                            <li><i class="fas fa-check"></i> Alta competitividad para abastecer Europa Central</li>
+                        </ul>
+                    </div>
+                    <div class="ruta-nota">
+                        <p><i class="fas fa-info-circle"></i> <strong>Nota:</strong> Se puede negociar entregar en el Puerto de Gdańsk en Polonia, pero sube el precio y es más complicado, por lo que preferimos mandarlo a Hamburgo directamente.</p>
+                    </div>
+                </div>
+
+                <!-- Ruta 2 -->
+                <div class="ruta-card">
+                    <div class="ruta-header">
+                        <div class="ruta-icono">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div class="ruta-titulo">
+                            <h3>Ruta 2 - Transporte Aéreo Consolidado</h3>
+                            <span class="ruta-subtitulo">México → Aeropuertos principales</span>
+                        </div>
+                    </div>
+                    <div class="ruta-destinos">
+                        <div class="destino-origen">
+                            <i class="fas fa-flag"></i>
+                            <span>Origen: México</span>
+                        </div>
+                        <div class="destino-flecha">
+                            <i class="fas fa-long-arrow-alt-right"></i>
+                        </div>
+                        <div class="destino-final">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Destino: Frankfurt, París CDG, Katowice TW</span>
+                        </div>
+                    </div>
+                    <div class="ruta-justificacion">
+                        <h4><i class="fas fa-clipboard-check"></i> Justificación</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Ideal para envíos urgentes o críticos para producción</li>
+                            <li><i class="fas fa-check"></i> Reduce de manera importante el lead time</li>
+                            <li><i class="fas fa-check"></i> Asegura continuidad de producción en OEMs europeos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Ruta 3 -->
+                <div class="ruta-card">
+                    <div class="ruta-header">
+                        <div class="ruta-icono">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div class="ruta-titulo">
+                            <h3>Ruta 3 - Logística Multimodal</h3>
+                            <span class="ruta-subtitulo">Terrestre + Marítimo / Aéreo</span>
+                        </div>
+                    </div>
+                    <div class="ruta-flujo">
+                        <div class="flujo-etapas">
+                            <div class="etapa-flujo">
+                                <i class="fas fa-industry"></i>
+                                <span>Planta</span>
+                            </div>
+                            <div class="flecha-flujo">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                            <div class="etapa-flujo">
+                                <i class="fas fa-warehouse"></i>
+                                <span>CD</span>
+                            </div>
+                            <div class="flecha-flujo">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                            <div class="etapa-flujo">
+                                <i class="fas fa-ship"></i>
+                                <span>Puerto/Aeropuerto</span>
+                            </div>
+                            <div class="flecha-flujo">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                            <div class="etapa-flujo">
+                                <i class="fas fa-building"></i>
+                                <span>Cliente</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ruta-justificacion">
+                        <h4><i class="fas fa-clipboard-check"></i> Justificación</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Mayor flexibilidad operativa</li>
+                            <li><i class="fas fa-check"></i> Permite optimizar consolidaciones</li>
+                            <li><i class="fas fa-check"></i> Facilita el abastecimiento simultáneo a múltiples países</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estrategia de Distribución -->
+    <section class="estrategia-distribucion">
+        <div class="container">
+            <div class="seccion-header">
+                <div class="header-icono">
+                    <i class="fas fa-chart-network"></i>
+                </div>
+                <h2>Estrategia de Distribución Física</h2>
+                <p>Combinación inteligente de canales para optimización global</p>
+            </div>
+
+            <div class="estrategia-contenido">
+                <div class="estrategia-texto">
+                    <p>Adoptamos una <strong>estrategia de distribución física mixta</strong>, donde combinamos canales directos e indirectos para optimizar tiempos, costos y alcance. Enviamos directamente a algunos clientes estratégicos cuando el volumen lo justifica, mientras que para otros mercados utilizamos distribuidores y operadores logísticos especializados que nos permiten ampliar cobertura y reducir riesgos operativos.</p>
+                </div>
+
+                <!-- Diagrama de Estrategia -->
+                <div class="estrategia-diagrama">
+                    <div class="diagrama-titulo">
+                        <i class="fas fa-project-diagram"></i>
+                        <h3>Modelo de Distribución Mixta</h3>
+                    </div>
+                    <div class="diagrama-niveles">
+                        <!-- Nivel 1: Proveedor -->
+                        <div class="nivel">
+                            <div class="nivel-icono">
+                                <i class="fas fa-truck-loading"></i>
+                            </div>
+                            <div class="nivel-contenido">
+                                <h4>Proveedores Certificados</h4>
+                                <p>Materias primas y componentes</p>
+                            </div>
+                        </div>
+
+                        <!-- Nivel 2: Planta -->
+                        <div class="nivel">
+                            <div class="nivel-icono">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <div class="nivel-contenido">
+                                <h4>Planta de Fabricación</h4>
+                                <p>Jalisco, México</p>
+                            </div>
+                        </div>
+
+                        <!-- Nivel 3: Distribución -->
+                        <div class="nivel distribucion">
+                            <div class="distribucion-opciones">
+                                <!-- Opción Directa -->
+                                <div class="opcion opcion-directa">
+                                    <div class="opcion-icono">
+                                        <i class="fas fa-directions"></i>
+                                    </div>
+                                    <div class="opcion-contenido">
+                                        <h5>Distribución Directa</h5>
+                                        <p>Clientes estratégicos<br>Volumen justificado</p>
+                                    </div>
+                                    <div class="opcion-flecha">
+                                        <i class="fas fa-arrow-down"></i>
+                                    </div>
+                                </div>
+
+                                <!-- Opción Indirecta -->
+                                <div class="opcion opcion-indirecta">
+                                    <div class="opcion-icono">
+                                        <i class="fas fa-people-carry"></i>
+                                    </div>
+                                    <div class="opcion-contenido">
+                                        <h5>Distribución Indirecta</h5>
+                                        <p>Distribuidores especializados<br>Operadores logísticos</p>
+                                    </div>
+                                    <div class="opcion-flecha">
+                                        <i class="fas fa-arrow-down"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Nivel 4: Clientes -->
+                        <div class="nivel clientes">
+                            <div class="clientes-grid">
+                                <div class="cliente-item">
+                                    <i class="fas fa-flag"></i>
+                                    <span>Alemania</span>
+                                </div>
+                                <div class="cliente-item">
+                                    <i class="fas fa-flag"></i>
+                                    <span>Francia</span>
+                                </div>
+                                <div class="cliente-item">
+                                    <i class="fas fa-flag"></i>
+                                    <span>Polonia</span>
+                                </div>
+                                <div class="cliente-item">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                    <span>Más mercados</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Razones de la estrategia -->
+                <div class="estrategia-razones">
+                    <h3><i class="fas fa-question-circle"></i> ¿Por qué utilizamos una estrategia mixta?</h3>
+                    <div class="razones-grid">
+                        <div class="razon-card">
+                            <div class="razon-icono">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h4>Adaptabilidad</h4>
+                            <p>Nos adaptamos a variaciones de demanda automotriz</p>
+                        </div>
+                        <div class="razon-card">
+                            <div class="razon-icono">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <h4>Reducción de Costos</h4>
+                            <p>Reducimos costos logísticos en cargas consolidadas por marítimo</p>
+                        </div>
+                        <div class="razon-card">
+                            <div class="razon-icono">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h4>Continuidad</h4>
+                            <p>Garantizamos continuidad productiva mediante envíos urgentes</p>
+                        </div>
+                        <div class="razon-card">
+                            <div class="razon-icono">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h4>Trazabilidad</h4>
+                            <p>Mantenemos trazabilidad total durante todo el flujo logístico</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Indicadores KPI -->
+    <section class="indicadores-kpi">
+        <div class="container">
+            <div class="seccion-header">
+                <div class="header-icono">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h2>Indicadores de Desempeño (KPI's)</h2>
+                <p>Métricas clave para medir la eficiencia de nuestra cadena</p>
+            </div>
+
+            <div class="kpi-container">
+                <div class="kpi-tabla-wrapper">
+                    <table class="kpi-tabla">
+                        <thead>
+                            <tr>
+                                <th class="col-indicador">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Indicador</span>
+                                </th>
+                                <th class="col-definicion">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Definición</span>
+                                </th>
+                                <th class="col-objetivo">
+                                    <i class="fas fa-bullseye"></i>
+                                    <span>Objetivo</span>
+                                </th>
+                                <th class="col-estado">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                    <span>Estado Actual</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- KPI 1 -->
+                            <tr class="kpi-row">
+                                <td class="celda-indicador">
+                                    <div class="indicador-nombre">
+                                        <strong>Tiempo de entrega (Lead Time)</strong>
+                                        <span class="indicador-codigo">KPI-001</span>
+                                    </div>
+                                </td>
+                                <td class="celda-definicion">
+                                    Días entre la salida y la recepción del producto
+                                </td>
+                                <td class="celda-objetivo">
+                                    <div class="objetivo-container">
+                                        <div class="objetivo-icono">
+                                            <i class="fas fa-arrow-down"></i>
+                                        </div>
+                                        <div class="objetivo-texto">
+                                            <strong>Reducir 15%</strong>
+                                            <span>mediante optimización de rutas</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="celda-estado">
+                                    <div class="estado-progreso">
+                                        <div class="progreso-barra">
+                                            <div class="progreso-relleno" style="width: 70%"></div>
+                                        </div>
+                                        <div class="progreso-texto">
+                                            <span class="progreso-valor">70%</span>
+                                            <span class="progreso-meta">Meta: 85%</span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- KPI 2 -->
+                            <tr class="kpi-row">
+                                <td class="celda-indicador">
+                                    <div class="indicador-nombre">
+                                        <strong>Costo logístico por unidad</strong>
+                                        <span class="indicador-codigo">KPI-002</span>
+                                    </div>
+                                </td>
+                                <td class="celda-definicion">
+                                    Transporte, manejo, aduana y seguros
+                                </td>
+                                <td class="celda-objetivo">
+                                    <div class="objetivo-container">
+                                        <div class="objetivo-icono">
+                                            <i class="fas fa-arrow-down"></i>
+                                        </div>
+                                        <div class="objetivo-texto">
+                                            <strong>Optimizar</strong>
+                                            <span>mediante EXW/CIF y crossdocking</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="celda-estado">
+                                    <div class="estado-progreso">
+                                        <div class="progreso-barra">
+                                            <div class="progreso-relleno" style="width: 65%"></div>
+                                        </div>
+                                        <div class="progreso-texto">
+                                            <span class="progreso-valor">65%</span>
+                                            <span class="progreso-meta">Meta: 80%</span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- KPI 3 -->
+                            <tr class="kpi-row">
+                                <td class="celda-indicador">
+                                    <div class="indicador-nombre">
+                                        <strong>Nivel de servicio (OTIF)</strong>
+                                        <span class="indicador-codigo">KPI-003</span>
+                                    </div>
+                                </td>
+                                <td class="celda-definicion">
+                                    % de entregas completas y a tiempo
+                                </td>
+                                <td class="celda-objetivo">
+                                    <div class="objetivo-container">
+                                        <div class="objetivo-icono">
+                                            <i class="fas fa-equals"></i>
+                                        </div>
+                                        <div class="objetivo-texto">
+                                            <strong>Mantener ≥ 97%</strong>
+                                            <span>excelencia operativa</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="celda-estado">
+                                    <div class="estado-progreso">
+                                        <div class="progreso-barra">
+                                            <div class="progreso-relleno" style="width: 97%"></div>
+                                        </div>
+                                        <div class="progreso-texto">
+                                            <span class="progreso-valor">97%</span>
+                                            <span class="progreso-meta">¡Objetivo cumplido!</span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- KPI 4 -->
+                            <tr class="kpi-row">
+                                <td class="celda-indicador">
+                                    <div class="indicador-nombre">
+                                        <strong>Satisfacción del cliente</strong>
+                                        <span class="indicador-codigo">KPI-004</span>
+                                    </div>
+                                </td>
+                                <td class="celda-definicion">
+                                    Evaluación de fabricantes automotrices europeos
+                                </td>
+                                <td class="celda-objetivo">
+                                    <div class="objetivo-container">
+                                        <div class="objetivo-icono">
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="objetivo-texto">
+                                            <strong>Mantener ≥ 4.5/5</strong>
+                                            <span>excelencia en servicio</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="celda-estado">
+                                    <div class="estado-progreso">
+                                        <div class="progreso-barra">
+                                            <div class="progreso-relleno" style="width: 90%"></div>
+                                        </div>
+                                        <div class="progreso-texto">
+                                            <span class="progreso-valor">4.6/5</span>
+                                            <span class="progreso-meta">¡Superando expectativas!</span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Leyenda KPI -->
+                <div class="kpi-leyenda">
+                    <div class="leyenda-item">
+                        <div class="leyenda-color" style="background: #38a169;"></div>
+                        <span>Excelente (≥ 90%)</span>
+                    </div>
+                    <div class="leyenda-item">
+                        <div class="leyenda-color" style="background: #d69e2e;"></div>
+                        <span>Bueno (70-89%)</span>
+                    </div>
+                    <div class="leyenda-item">
+                        <div class="leyenda-color" style="background: #e53e3e;"></div>
+                        <span>Por mejorar (< 70%)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modelo Crossdocking -->
+    <section class="modelo-crossdocking">
+        <div class="container">
+            <div class="seccion-header">
+                <div class="header-icono">
+                    <i class="fas fa-exchange-alt"></i>
+                </div>
+                <h2>Modelo de Crossdocking</h2>
+                <p>Eficiencia operativa mediante flujo continuo de mercancías</p>
+            </div>
+
+            <div class="crossdocking-contenido">
+                <div class="crossdocking-intro">
+                    <p>Operamos un sistema de crossdocking directo y de consolidación, que nos permite incrementar la eficiencia de nuestra cadena logística.</p>
+                </div>
+
+                <!-- Tipos de Crossdocking -->
+                <div class="tipos-crossdocking">
+                    <!-- Tipo 1 -->
+                    <div class="tipo-card">
+                        <div class="tipo-header">
+                            <div class="tipo-icono">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3>Crossdocking Directo</h3>
+                            <span class="tipo-subtitulo">Flujo rápido y continuo</span>
+                        </div>
+                        <div class="tipo-descripcion">
+                            <p>La mercancía pasa de recepción a salida sin almacenaje prolongado.</p>
+                        </div>
+                        <div class="tipo-aplicacion">
+                            <h4><i class="fas fa-check-circle"></i> Aplicación ideal</h4>
+                            <p>Productos de alta rotación como sensores ABS.</p>
+                        </div>
+                        <div class="tipo-flujo">
+                            <div class="flujo-simple">
+                                <div class="flujo-etapa">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    <span>Recepción</span>
+                                </div>
+                                <div class="flujo-flecha">
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                                <div class="flujo-etapa">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    <span>Salida</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tipo 2 -->
+                    <div class="tipo-card">
+                        <div class="tipo-header">
+                            <div class="tipo-icono">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <h3>Crossdocking de Consolidación</h3>
+                            <span class="tipo-subtitulo">Agrupación inteligente</span>
+                        </div>
+                        <div class="tipo-descripcion">
+                            <p>Recibimos múltiples lotes, los agrupamos por destino y los integramos en contenedores o pallets consolidados.</p>
+                        </div>
+                        <div class="tipo-aplicacion">
+                            <h4><i class="fas fa-check-circle"></i> Aplicación ideal</h4>
+                            <p>Exportaciones hacia Alemania, Francia y Polonia.</p>
+                        </div>
+                        <div class="tipo-flujo">
+                            <div class="flujo-complejo">
+                                <div class="flujo-etapa">
+                                    <i class="fas fa-boxes"></i>
+                                    <span>Múltiples lotes</span>
+                                </div>
+                                <div class="flujo-flecha">
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                                <div class="flujo-etapa">
+                                    <i class="fas fa-object-group"></i>
+                                    <span>Agrupación por destino</span>
+                                </div>
+                                <div class="flujo-flecha">
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                                <div class="flujo-etapa">
+                                    <i class="fas fa-container-storage"></i>
+                                    <span>Consolidación</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beneficios -->
+                <div class="beneficios-crossdocking">
+                    <h3><i class="fas fa-award"></i> Principales beneficios</h3>
+                    <div class="beneficios-grid">
+                        <div class="beneficio-item">
+                            <div class="beneficio-icono">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h4>Reducción de tiempo</h4>
+                            <p>Menor tiempo de procesamiento</p>
+                        </div>
+                        <div class="beneficio-item">
+                            <div class="beneficio-icono">
+                                <i class="fas fa-warehouse"></i>
+                            </div>
+                            <h4>Inventario mínimo</h4>
+                            <p>Máxima rotación en el CD</p>
+                        </div>
+                        <div class="beneficio-item">
+                            <div class="beneficio-icono">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h4>Trazabilidad total</h4>
+                            <p>Precisión en los embarques</p>
+                        </div>
+                        <div class="beneficio-item">
+                            <div class="beneficio-icono">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <h4>Optimización de costos</h4>
+                            <p>Disminución de costos logísticos</p>
+                        </div>
+                        <div class="beneficio-item">
+                            <div class="beneficio-icono">
+                                <i class="fas fa-shipping-fast"></i>
+                            </div>
+                            <h4>Frecuencia aumentada</h4>
+                            <p>Más entregas para clientes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 AutoMotion Parts S.A. de C.V.</p>
+            <p>Cadena de suministro inteligente para exportación automotriz</p>
+        </div>
+    </footer>
+
+    <script src="js/cadena.js"></script>
+    <script src="js/todos.js"></script>
+</body>
+</html>

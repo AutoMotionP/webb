@@ -678,6 +678,7 @@ h2::after {
     box-shadow: var(--shadow-md);
 }
 
+
 /* Footer */
 footer {
     background: var(--dark-blue);

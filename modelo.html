@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/logo.jpg">
+    <title>Modelo Vogel - AutoMotion Parts</title>
+    <link rel="stylesheet" href="css/modelo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h2>AutoMotion Parts</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                
+                <!-- Submenú Productos -->
+                <li class="has-submenu">
+                    <a href="productos.html">Catalogo <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="envase.html">Packaging</a></li>
+                        <li><a href="cubicaje.html">Cubicaje</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Submenú Logística -->
+                <li class="has-submenu">
+                    <a href="logistica.html">Logística <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="cadena.html">Cadena de Suministros</a></li>
+                        <li><a href="costos.html">Costos Logísticos</a></li>
+                        <li><a href="logisitica.html">Logística Integral</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Submenú Innovación -->
+                <li class="has-submenu">
+                    <a href="4.0.html">Innovación <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="4.0.html">Industria 4.0</a></li>
+                        <li><a href="modelo.html" class="active">Modelo Vogel</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="servicio.html">Servicio</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="vogel-hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1><i class="fas fa-route"></i> Modelo Vogel</h1>
+                <p class="hero-subtitle">Optimización matemática para rutas de transporte eficientes</p>
+                
+                <div class="hero-intro">
+                    <p>En nuestras operaciones logísticas, la optimización de costos es tan importante como la calidad de nuestras autopartes. Por ello, utilizamos herramientas especializadas como el Método Vogel, una técnica reconocida para determinar las rutas de transporte más eficientes cuando contamos con múltiples orígenes y destinos. Este método nos permite identificar la combinación de envíos que minimiza los costos logísticos, especialmente en esquemas de carga consolidada hacia Europa. Al aplicar el Método Vogel con datos reales de precios, capacidades y rutas, aseguramos una planificación más precisa, transparente y competitiva, ofreciendo a nuestros clientes soluciones logísticas confiables y eficientes.</p>
+                    
+                    <div class="nota-importante">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <p><strong>NOTA:</strong> Para fines demostrativos utilizamos cantidades de unidades ficticias, pero damos datos reales de nuestros precios, orígenes y destinos, para que el ejemplo refleje con precisión nuestras operaciones. Se dividirá según el producto y modo de transporte.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 1: Transporte Marítimo -->
+    <section class="transporte-seccion maritimo">
+        <div class="container">
+            <div class="seccion-header">
+                <div class="header-icono">
+                    <i class="fas fa-ship"></i>
+                </div>
+                <h2>Transporte Marítimo</h2>
+                <p class="seccion-desc">Optimización de rutas marítimas mediante el Método Vogel</p>
+            </div>
+
+            <div class="galeria-vogel">
+                <!-- Imagen 1 -->
+                <div class="imagen-item">
+                    <div class="imagen-container">
+                        <img src="img/arnesMar.jpg" alt="Método Vogel - Transporte Marítimo 1">
+                        <div class="imagen-overlay">
+                            <button class="ver-detalle">
+                                <i class="fas fa-expand"></i> Ampliar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="imagen-info">
+                        <h3>Arnes Electrico</h3>
+                    </div>
+                </div>
+
+                <!-- Imagen 2 -->
+                <div class="imagen-item">
+                    <div class="imagen-container">
+                        <img src="img/sensorMar.jpg" alt="Método Vogel - Transporte Marítimo 2">
+                        <div class="imagen-overlay">
+                            <button class="ver-detalle">
+                                <i class="fas fa-expand"></i> Ampliar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="imagen-info">
+                        <h3>Sensor ABS</h3>
+                    </div>
+                </div>
+
+                <!-- Imagen 3 -->
+                <div class="imagen-item">
+                    <div class="imagen-container">
+                        <img src="img/moduloMar.jpg" alt="Método Vogel - Transporte Marítimo 3">
+                        <div class="imagen-overlay">
+                            <button class="ver-detalle">
+                                <i class="fas fa-expand"></i> Ampliar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="imagen-info">
+                        <h3>Modulo Electrico</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 2: Transporte Aéreo -->
+    <section class="transporte-seccion aereo">
+        <div class="container">
+            <div class="seccion-header">
+                <div class="header-icono">
+                    <i class="fas fa-plane"></i>
+                </div>
+                <h2>Transporte Aéreo</h2>
+                <p class="seccion-desc">Optimización de rutas aéreas mediante el Método Vogel</p>
+            </div>
+
+            <div class="galeria-vogel">
+                <!-- Imagen 1 -->
+                <div class="imagen-item">
+                    <div class="imagen-container">
+                        <img src="img/arnesAE.jpg" alt="Método Vogel - Transporte Aéreo 1">
+                        <div class="imagen-overlay">
+                            <button class="ver-detalle">
+                                <i class="fas fa-expand"></i> Ampliar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="imagen-info">
+                        <h3>Arnes Electricos</h3>
+                    </div>
+                </div>
+
+                <!-- Imagen 2 -->
+                <div class="imagen-item">
+                    <div class="imagen-container">
+                        <img src="img/sensorAR.jpg" alt="Método Vogel - Transporte Aéreo 2">
+                        <div class="imagen-overlay">
+                            <button class="ver-detalle">
+                                <i class="fas fa-expand"></i> Ampliar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="imagen-info">
+                        <h3>Sensor ABS</h3>
+                    </div>
+                </div>
+
+                <!-- Imagen 3 -->
+                <div class="imagen-item">
+                    <div class="imagen-container">
+                        <img src="img/moduloAR.jpg" alt="Método Vogel - Transporte Aéreo 3">
+                        <div class="imagen-overlay">
+                            <button class="ver-detalle">
+                                <i class="fas fa-expand"></i> Ampliar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="imagen-info">
+                        <h3>Modulo Electrico</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 3: Interpretación y Análisis -->
+    <section class="interpretacion-analisis">
+        <div class="container">
+            <div class="seccion-header">
+                <div class="header-icono">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h2>Interpretación y Análisis del Resultado</h2>
+                <p class="seccion-desc">Conclusiones clave derivadas de la aplicación del Método Vogel</p>
+            </div>
+
+            <!-- Almacén más conveniente -->
+            <div class="analisis-contenido">
+                <div class="analisis-titulo">
+                    <i class="fas fa-warehouse"></i>
+                    <h3>Almacén más conveniente</h3>
+                </div>
+                
+                <div class="resultados-grid">
+                    <!-- Resultado Marítimo -->
+                    <div class="resultado-card resultado-optimo">
+                        <div class="resultado-header">
+                            <div class="resultado-icono">
+                                <i class="fas fa-ship"></i>
+                            </div>
+                            <div class="resultado-titulo">
+                                <h4>Transporte Marítimo</h4>
+                                <span class="resultado-etiqueta">Más conveniente</span>
+                            </div>
+                        </div>
+                        <div class="resultado-contenido">
+                            <div class="ubicacion-destacada">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="ubicacion-info">
+                                    <h5>Veracruz</h5>
+                                    <p>Origen más conveniente</p>
+                                </div>
+                            </div>
+                            <div class="razones-lista">
+                                <div class="razon-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Costos logísticos promedio más bajos</span>
+                                </div>
+                                <div class="razon-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Mayor cantidad de asignaciones en soluciones finales</span>
+                                </div>
+                                <div class="razon-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Ubicación estratégica en el Golfo de México</span>
+                                </div>
+                            </div>
+                            <div class="conexion-info">
+                                <p><i class="fas fa-anchor"></i> <strong>Conexión clave:</strong> Rutas transatlánticas hacia Europa</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resultado Aéreo -->
+                    <div class="resultado-card resultado-optimo">
+                        <div class="resultado-header">
+                            <div class="resultado-icono">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <div class="resultado-titulo">
+                                <h4>Transporte Aéreo</h4>
+                                <span class="resultado-etiqueta">Más conveniente</span>
+                            </div>
+                        </div>
+                        <div class="resultado-contenido">
+                            <div class="ubicacion-destacada">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="ubicacion-info">
+                                    <h5>Guadalajara y CDMX</h5>
+                                    <p>Orígenes más convenientes</p>
+                                </div>
+                            </div>
+                            <div class="razones-lista">
+                                <div class="razon-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Infraestructura aeroportuaria robusta</span>
+                                </div>
+                                <div class="razon-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Mayor frecuencia de vuelos internacionales</span>
+                                </div>
+                                <div class="razon-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Costos competitivos para carga aérea</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Origen menos favorable -->
+                    <div class="resultado-card resultado-desfavorable">
+                        <div class="resultado-header">
+                            <div class="resultado-icono">
+                                <i class="fas fa-times-circle"></i>
+                            </div>
+                            <div class="resultado-titulo">
+                                <h4>Menos favorable (Marítimo)</h4>
+                                <span class="resultado-etiqueta desfavorable">Costos elevados</span>
+                            </div>
+                        </div>
+                        <div class="resultado-contenido">
+                            <div class="ubicacion-destacada">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="ubicacion-info">
+                                    <h5>Guadalajara</h5>
+                                    <p>Origen menos favorable para marítimo</p>
+                                </div>
+                            </div>
+                            <div class="razones-lista">
+                                <div class="razon-item">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>Costos unitarios más elevados</span>
+                                </div>
+                                <div class="razon-item">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>Flete nacional más largo hacia puertos del Golfo</span>
+                                </div>
+                                <div class="razon-item">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>Distancia terrestre incrementa costos logísticos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Destinos más convenientes -->
+            <div class="analisis-contenido destinos">
+                <div class="analisis-titulo">
+                    <i class="fas fa-flag-checkered"></i>
+                    <h3>Destinos más convenientes</h3>
+                </div>
+                
+                <div class="destinos-grid">
+                    <!-- Alemania -->
+                    <div class="destino-card destino-optimo">
+                        <div class="destino-header">
+                            <div class="destino-bandera">
+                                <i class="fas fa-flag"></i>
+                            </div>
+                            <div class="destino-titulo">
+                                <h4>Alemania</h4>
+                                <span class="destino-etiqueta">Óptimo</span>
+                            </div>
+                        </div>
+                        <div class="destino-contenido">
+                            <div class="destino-ventajas">
+                                <div class="ventaja-item">
+                                    <i class="fas fa-euro-sign"></i>
+                                    <span>Menores costos logísticos</span>
+                                </div>
+                                <div class="ventaja-item">
+                                    <i class="fas fa-ship"></i>
+                                    <span>Frecuencia alta de servicios</span>
+                                </div>
+                                <div class="ventaja-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Tiempos de tránsito predecibles</span>
+                                </div>
+                            </div>
+                            <div class="destino-nota">
+                                <p><i class="fas fa-star"></i> <strong>Ventaja:</strong> Puerto de Hamburgo como hub principal</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Francia -->
+                    <div class="destino-card destino-optimo">
+                        <div class="destino-header">
+                            <div class="destino-bandera">
+                                <i class="fas fa-flag"></i>
+                            </div>
+                            <div class="destino-titulo">
+                                <h4>Francia</h4>
+                                <span class="destino-etiqueta">Óptimo</span>
+                            </div>
+                        </div>
+                        <div class="destino-contenido">
+                            <div class="destino-ventajas">
+                                <div class="ventaja-item">
+                                    <i class="fas fa-euro-sign"></i>
+                                    <span>Costos competitivos</span>
+                                </div>
+                                <div class="ventaja-item">
+                                    <i class="fas fa-ship"></i>
+                                    <span>Puertos bien conectados</span>
+                                </div>
+                                <div class="ventaja-item">
+                                    <i class="fas fa-road"></i>
+                                    <span>Infraestructura logística sólida</span>
+                                </div>
+                            </div>
+                            <div class="destino-nota">
+                                <p><i class="fas fa-star"></i> <strong>Ventaja:</strong> Le Havre como puerto estratégico</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Polonia -->
+                    <div class="destino-card destino-desfavorable">
+                        <div class="destino-header">
+                            <div class="destino-bandera">
+                                <i class="fas fa-flag"></i>
+                            </div>
+                            <div class="destino-titulo">
+                                <h4>Polonia</h4>
+                                <span class="destino-etiqueta desfavorable">Menos conveniente</span>
+                            </div>
+                        </div>
+                        <div class="destino-contenido">
+                            <div class="destino-desventajas">
+                                <div class="desventaja-item">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>Costos sustancialmente mayores</span>
+                                </div>
+                                <div class="desventaja-item">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>Mayor complejidad logística</span>
+                                </div>
+                                <div class="desventaja-item">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>Frecuencia de servicios limitada</span>
+                                </div>
+                            </div>
+                            <div class="destino-nota">
+                                <p><i class="fas fa-info-circle"></i> <strong>Razón:</strong> Viajes menos frecuentes y más costosos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 4: Beneficios del Método Vogel -->
+    <section class="beneficios-vogel">
+        <div class="container">
+            <div class="seccion-header">
+                <div class="header-icono">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h2>Beneficios del Método Vogel en AutoMotion Parts</h2>
+                <p class="seccion-desc">Ventajas competitivas obtenidas mediante la optimización matemática</p>
+            </div>
+
+            <div class="beneficios-grid">
+                <!-- Beneficio 1 -->
+                <div class="beneficio-card">
+                    <div class="beneficio-icono">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="beneficio-contenido">
+                        <h3>Reducción de Costos</h3>
+                        <p>Minimización promedio del 15-20% en costos logísticos totales mediante asignaciones óptimas.</p>
+                    </div>
+                </div>
+
+                <!-- Beneficio 2 -->
+                <div class="beneficio-card">
+                    <div class="beneficio-icono">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="beneficio-contenido">
+                        <h3>Previsibilidad Mejorada</h3>
+                        <p>Planificación más precisa de rutas y tiempos de entrega basada en datos reales.</p>
+                    </div>
+                </div>
+
+                <!-- Beneficio 3 -->
+                <div class="beneficio-card">
+                    <div class="beneficio-icono">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="beneficio-contenido">
+                        <h3>Transparencia Total</h3>
+                        <p>Justificación matemática de las decisiones logísticas para clientes y stakeholders.</p>
+                    </div>
+                </div>
+
+                <!-- Beneficio 4 -->
+                <div class="beneficio-card">
+                    <div class="beneficio-icono">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="beneficio-contenido">
+                        <h3>Respuesta Ágil</h3>
+                        <p>Capacidad de reoptimizar rutas ante cambios en demanda o condiciones del mercado.</p>
+                    </div>
+                </div>
+
+                <!-- Beneficio 5 -->
+                <div class="beneficio-card">
+                    <div class="beneficio-icono">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="beneficio-contenido">
+                        <h3>Sostenibilidad</h3>
+                        <p>Reducción de la huella de carbono mediante rutas optimizadas y carga consolidada.</p>
+                    </div>
+                </div>
+
+                <!-- Beneficio 6 -->
+                <div class="beneficio-card">
+                    <div class="beneficio-icono">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="beneficio-contenido">
+                        <h3>Ventaja Competitiva</h3>
+                        <p>Diferenciación en el mercado mediante logística inteligente y basada en datos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 5: Aplicación Práctica -->
+    <section class="aplicacion-practica">
+        <div class="container">
+            <div class="seccion-header">
+                <div class="header-icono">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h2>Aplicación Práctica en Nuestras Operaciones</h2>
+                <p class="seccion-desc">Cómo implementamos el Método Vogel en el día a día</p>
+            </div>
+
+            <div class="aplicacion-contenido">
+                <div class="aplicacion-pasos">
+                    <!-- Paso 1 -->
+                    <div class="paso-card">
+                        <div class="paso-numero">01</div>
+                        <div class="paso-contenido">
+                            <h3>Recolección de Datos</h3>
+                            <p>Recopilamos precios reales de fletes, capacidades de contenedores, tiempos de tránsito y restricciones específicas por ruta.</p>
+                        </div>
+                    </div>
+
+                    <!-- Paso 2 -->
+                    <div class="paso-card">
+                        <div class="paso-numero">02</div>
+                        <div class="paso-contenido">
+                            <h3>Construcción de Matriz</h3>
+                            <p>Organizamos los datos en matrices origen-destino separadas por modo de transporte (marítimo/aéreo) y producto.</p>
+                        </div>
+                    </div>
+
+                    <!-- Paso 3 -->
+                    <div class="paso-card">
+                        <div class="paso-numero">03</div>
+                        <div class="paso-contenido">
+                            <h3>Aplicación del Algoritmo</h3>
+                            <p>Ejecutamos el Método Vogel para encontrar la asignación óptima que minimice los costos totales de transporte.</p>
+                        </div>
+                    </div>
+
+                    <!-- Paso 4 -->
+                    <div class="paso-card">
+                        <div class="paso-numero">04</div>
+                        <div class="paso-contenido">
+                            <h3>Validación y Ajuste</h3>
+                            <p>Validamos los resultados con nuestro equipo logístico y ajustamos considerando factores operativos adicionales.</p>
+                        </div>
+                    </div>
+
+                    <!-- Paso 5 -->
+                    <div class="paso-card">
+                        <div class="paso-numero">05</div>
+                        <div class="paso-contenido">
+                            <h3>Implementación y Monitoreo</h3>
+                            <p>Implementamos las rutas optimizadas y monitoreamos su desempeño para ajustes continuos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="aplicacion-resumen">
+                    <div class="resumen-card">
+                        <div class="resumen-icono">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="resumen-contenido">
+                            <h3>¿Por qué elegimos el Método Vogel?</h3>
+                            <p>Entre diversas técnicas de optimización, el Método Vogel se distingue por su equilibrio perfecto entre precisión matemática y aplicabilidad práctica. A diferencia de métodos más simples, considera las penalizaciones de no asignar a las rutas más económicas, logrando soluciones más cercanas al óptimo global con un esfuerzo computacional razonable.</p>
+                            <div class="resumen-ventajas">
+                                <span class="ventaja-tag"><i class="fas fa-check"></i> Precisión comprobada</span>
+                                <span class="ventaja-tag"><i class="fas fa-check"></i> Tiempo de cálculo eficiente</span>
+                                <span class="ventaja-tag"><i class="fas fa-check"></i> Resultados fácilmente interpretables</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox (igual que cubicaje) -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="lightbox-prev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="lightbox-next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <img src="" alt="" class="lightbox-image">
+            <div class="lightbox-caption">
+                <h3 class="lightbox-title"></h3>
+                <p class="lightbox-desc"></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 AutoMotion Parts S.A. de C.V.</p>
+            <p>Optimización logística mediante métodos matemáticos avanzados</p>
+        </div>
+    </footer>
+
+    <script src="js/todos.js"></script>
+    <script src="js/modelo.js"></script>
+</body>
+</html>

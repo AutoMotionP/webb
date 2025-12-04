@@ -1686,3 +1686,118 @@ footer p:last-child {
         margin-bottom: 2rem;
     }
 }
+
+/* ============================================
+   ARREGLAR TÍTULOS OCULTOS EN POLÍTICAS
+   ============================================ */
+
+/* Asegurar que los títulos sean visibles */
+.politica-header h3 {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: var(--white) !important;
+    font-size: 1.2rem !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+}
+
+/* Remover cualquier estilo que pueda estar ocultando los títulos */
+.politica-header {
+    background: var(--primary-blue) !important;
+    color: var(--white) !important;
+    padding: 1.5rem 2rem !important;
+    position: relative;
+    z-index: 1;
+}
+
+/* Asegurar que los íconos también sean visibles */
+.politica-header h3 i {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: var(--accent-red) !important;
+    font-size: 1.1rem !important;
+    margin-right: 10px;
+}
+
+/* Si hay algún problema con flexbox que esté ocultando elementos */
+.politica-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+}
+
+/* Resetear cualquier transformación que pueda estar ocultando */
+.politica-header h3 {
+    transform: none !important;
+    filter: none !important;
+}
+
+/* Debug: añadir borde temporal para verificar */
+/*
+.politica-header h3 {
+    border: 2px solid red !important;
+    padding: 5px !important;
+}
+*/
+
+/* ============================================
+   ESTILOS ESPECÍFICOS PARA CADA POLÍTICA
+   ============================================ */
+
+/* Pedidos Mínimos */
+.politica-card:nth-child(1) .politica-header {
+    background: linear-gradient(135deg, #3182ce 0%, #2b6cb0 100%) !important;
+}
+
+/* Mercados Destino */
+.politica-card:nth-child(2) .politica-header {
+    background: linear-gradient(135deg, var(--tech-green) 0%, #2f855a 100%) !important;
+}
+
+/* Entrega y Logística */
+.politica-card:nth-child(3) .politica-header {
+    background: linear-gradient(135deg, #805ad5 0%, #6b46c1 100%) !important;
+}
+
+/* Calidad y Pagos */
+.politica-card:nth-child(4) .politica-header {
+    background: linear-gradient(135deg, var(--accent-red) 0%, #c53030 100%) !important;
+}
+
+/* ============================================
+   RESPONSIVE PARA TÍTULOS
+   ============================================ */
+
+@media (max-width: 768px) {
+    .politica-header {
+        padding: 1.2rem 1.5rem !important;
+    }
+    
+    .politica-header h3 {
+        font-size: 1.1rem !important;
+    }
+    
+    .politica-header h3 i {
+        font-size: 1rem !important;
+        margin-right: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .politica-header {
+        padding: 1rem 1.2rem !important;
+    }
+    
+    .politica-header h3 {
+        font-size: 1rem !important;
+    }
+    
+    .politica-header h3 i {
+        font-size: 0.9rem !important;
+        margin-right: 6px;
+    }
+}

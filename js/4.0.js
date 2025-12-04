@@ -288,7 +288,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // Crear panel de control (opcional, puedes comentar si no lo quieres)
         const panelHTML = `
             <div class="simulador-panel">
-                <h4><i class="fas fa-gamepad"></i> Simulador de Tecnologías</h4>
+               <div class="simulador-header" style="text-align: center; margin-bottom: 2rem;">
+    <h4 class="titulo-simulador" style="font-size: 2.2rem; font-weight: 700; color: var(--primary-blue); display: inline-flex; align-items: center; gap: 15px; margin: 0;">
+        <i class="fas fa-gamepad" style="color: var(--accent-red);"></i> 
+        Simulador de Tecnologías
+    </h4>
+</div>
                 <div class="tecnologia-botones">
                     ${tecnologias.map(tech => `
                         <button class="tech-btn" style="--tech-color: ${tech.color}" data-tech="${tech.nombre}">

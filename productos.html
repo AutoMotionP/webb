@@ -10,47 +10,47 @@
 </head>
 <body>
     <header>
-    <nav>
-        <div class="logo">
-            <h2>AutoMotion Parts</h2>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            
-            <!-- Submenú Productos -->
-           <li class="has-submenu">
-                <a href="productos.html">Catalogo <i class="fas fa-chevron-down"></i></a>
-                <ul class="submenu">
-                    <li><a href="productos.html">Productos</a></li>
-                    <li><a href="envase.html">Packaging</a></li>
-                    <li><a href="cubicaje.html">Cubicaje</a></li>
-                </ul>
-            </li>
-            
-            <!-- Submenú Logística -->
-            <li class="has-submenu">
-                <a href="logistica.html">Logística <i class="fas fa-chevron-down"></i></a>
-                <ul class="submenu">
-                    <li><a href="cadena.html">Cadena de Suministros</a></li>
-                    <li><a href="costos.html">Costos Logísticos</a></li>
-                    <li><a href="logisitica.html">Logística Integral</a></li>
-                </ul>
-            </li>
-            
-            <!-- Submenú Innovación -->
-            <li class="has-submenu">
-                <a href="4.0.html">Innovación <i class="fas fa-chevron-down"></i></a>
-                <ul class="submenu">
-                    <li><a href="4.0.html">Industria 4.0</a></li>
-                    <li><a href="modelo.html">Modelo Vogel</a></li>
-                </ul>
-            </li>
-            
-            <li><a href="servicio.html">Servicio</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
-</header>
+        <nav>
+            <div class="logo">
+                <h2>AutoMotion Parts</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                
+                <!-- Submenú Productos -->
+               <li class="has-submenu">
+                    <a href="productos.html">Catalogo <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="envase.html">Packaging</a></li>
+                        <li><a href="cubicaje.html">Cubicaje</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Submenú Logística -->
+                <li class="has-submenu">
+                    <a href="logistica.html">Logística <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="cadena.html">Cadena de Suministros</a></li>
+                        <li><a href="costos.html">Costos Logísticos</a></li>
+                        <li><a href="logisitica.html">Logística Integral</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Submenú Innovación -->
+                <li class="has-submenu">
+                    <a href="4.0.html">Innovación <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="4.0.html">Industria 4.0</a></li>
+                        <li><a href="modelo.html">Modelo Vogel</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="servicio.html">Servicio</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <!-- Hero Productos Mejorado -->
     <section class="producto-hero">
@@ -104,6 +104,397 @@
     <div id="contenido-producto">
         <!-- El contenido se cargará dinámicamente aquí -->
     </div>
+
+    <!-- NUEVA SECCIÓN: Tabla de Dimensiones y Peso -->
+    <section class="tabla-dimensiones">
+        <div class="container">
+            <div class="seccion-header">
+                <div class="header-icono">
+                    <i class="fas fa-weight-hanging"></i>
+                </div>
+                <h2>Dimensiones y Peso para Cálculo Logístico</h2>
+                <p class="seccion-desc">Especificaciones técnicas para planificación de transporte</p>
+            </div>
+
+            <div class="tabla-container">
+                <table class="tabla-especificaciones">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Piezas por Caja</th>
+                            <th>Largo (cm)</th>
+                            <th>Ancho (cm)</th>
+                            <th>Alto (cm)</th>
+                            <th>Peso Unitario (kg)</th>
+                            <th>Peso Caja Llena (kg)</th>
+                            <th>m³</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Arnés Eléctrico</strong></td>
+                            <td>50</td>
+                            <td>60</td>
+                            <td>40</td>
+                            <td>40</td>
+                            <td>0.8</td>
+                            <td>12</td>
+                            <td>0.096</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sensores ABS</strong></td>
+                            <td>100</td>
+                            <td>40</td>
+                            <td>30</td>
+                            <td>20</td>
+                            <td>0.8</td>
+                            <td>10</td>
+                            <td>0.024</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Módulos Electrónicos</strong></td>
+                            <td>20</td>
+                            <td>50</td>
+                            <td>35</td>
+                            <td>25</td>
+                            <td>0.8</td>
+                            <td>12</td>
+                            <td>0.04375</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="nota-tabla">
+                <i class="fas fa-info-circle"></i>
+                <p><strong>Nota:</strong> Estos valores son estándar para cálculo logístico. Se pueden ajustar según requerimientos específicos del cliente.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NUEVA SECCIÓN: Tabla de Precios -->
+    <section class="tabla-precios">
+        <div class="container">
+            <div class="seccion-header">
+                <div class="header-icono">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <h2>Precios Promedio por Producto</h2>
+                <p class="seccion-desc">Costos unitarios según modo de transporte (USD)</p>
+            </div>
+
+            <div class="precios-grid">
+                <!-- Módulos Electrónicos -->
+                <div class="precio-card">
+                    <div class="precio-header">
+                        <div class="precio-icono">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Módulos Electrónicos</h3>
+                        <span class="precio-codigo">PROD-MOD-001</span>
+                    </div>
+                    <div class="precio-detalles">
+                        <div class="precio-item">
+                            <div class="precio-tipo">
+                                <i class="fas fa-warehouse"></i>
+                                <span>EXW</span>
+                            </div>
+                            <div class="precio-valor">
+                                <strong>$72.38</strong>
+                                <span>USD/unidad</span>
+                            </div>
+                        </div>
+                        <div class="precio-item">
+                            <div class="precio-tipo">
+                                <i class="fas fa-ship"></i>
+                                <span>CIF/CIP Marítimo</span>
+                            </div>
+                            <div class="precio-valor">
+                                <strong>$97.97</strong>
+                                <span>USD/unidad</span>
+                            </div>
+                        </div>
+                        <div class="precio-item">
+                            <div class="precio-tipo">
+                                <i class="fas fa-plane"></i>
+                                <span>CIF/CIP Aéreo</span>
+                            </div>
+                            <div class="precio-valor">
+                                <strong>$98.37</strong>
+                                <span>USD/unidad</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sensores ABS -->
+                <div class="precio-card">
+                    <div class="precio-header">
+                        <div class="precio-icono">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h3>Sensores ABS</h3>
+                        <span class="precio-codigo">PROD-SEN-002</span>
+                    </div>
+                    <div class="precio-detalles">
+                        <div class="precio-item">
+                            <div class="precio-tipo">
+                                <i class="fas fa-warehouse"></i>
+                                <span>EXW</span>
+                            </div>
+                            <div class="precio-valor">
+                                <strong>$16.28</strong>
+                                <span>USD/unidad</span>
+                            </div>
+                        </div>
+                        <div class="precio-item">
+                            <div class="precio-tipo">
+                                <i class="fas fa-ship"></i>
+                                <span>CIF/CIP Marítimo</span>
+                            </div>
+                            <div class="precio-valor">
+                                <strong>$31.39</strong>
+                                <span>USD/unidad</span>
+                            </div>
+                        </div>
+                        <div class="precio-item">
+                            <div class="precio-tipo">
+                                <i class="fas fa-plane"></i>
+                                <span>CIF/CIP Aéreo</span>
+                            </div>
+                            <div class="precio-valor">
+                                <strong>$31.41</strong>
+                                <span>USD/unidad</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arnés Eléctrico -->
+                <div class="precio-card">
+                    <div class="precio-header">
+                        <div class="precio-icono">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Arnés Eléctrico</h3>
+                        <span class="precio-codigo">PROD-ARN-003</span>
+                    </div>
+                    <div class="precio-detalles">
+                        <div class="precio-item">
+                            <div class="precio-tipo">
+                                <i class="fas fa-warehouse"></i>
+                                <span>EXW</span>
+                            </div>
+                            <div class="precio-valor">
+                                <strong>$28.27</strong>
+                                <span>USD/unidad</span>
+                            </div>
+                        </div>
+                        <div class="precio-item">
+                            <div class="precio-tipo">
+                                <i class="fas fa-ship"></i>
+                                <span>CIF/CIP Marítimo</span>
+                            </div>
+                            <div class="precio-valor">
+                                <strong>$37.21</strong>
+                                <span>USD/unidad</span>
+                            </div>
+                        </div>
+                        <div class="precio-item">
+                            <div class="precio-tipo">
+                                <i class="fas fa-plane"></i>
+                                <span>CIF/CIP Aéreo</span>
+                            </div>
+                            <div class="precio-valor">
+                                <strong>$37.24</strong>
+                                <span>USD/unidad</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="leyenda-precios">
+                <div class="leyenda-item">
+                    <div class="leyenda-color exw"></div>
+                    <span>EXW - En fábrica</span>
+                </div>
+                <div class="leyenda-item">
+                    <div class="leyenda-color maritimo"></div>
+                    <span>CIF/CIP Marítimo</span>
+                </div>
+                <div class="leyenda-item">
+                    <div class="leyenda-color aereo"></div>
+                    <span>CIF/CIP Aéreo</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NUEVA SECCIÓN: Distribución y Políticas -->
+    <section class="distribucion-politicas">
+        <div class="container">
+            <div class="seccion-header">
+                <div class="header-icono">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <h2>Distribución y Políticas Comerciales</h2>
+                <p class="seccion-desc">Canales de venta, mercados destino y condiciones de entrega</p>
+            </div>
+
+            <div class="distribucion-contenido">
+                <!-- Canales de Distribución -->
+                <div class="distribucion-grid">
+                    <div class="distribucion-card">
+                        <div class="distribucion-icono">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="distribucion-contenido">
+                            <h3>Canal Directo B2B</h3>
+                            <p>Fabricante directo para empresas automotrices Tier 1 y Tier 2</p>
+                            <ul class="distribucion-lista">
+                                <li><i class="fas fa-check"></i> Relación directa fabricante-cliente</li>
+                                <li><i class="fas fa-check"></i> Soporte técnico especializado</li>
+                                <li><i class="fas fa-check"></i> Desarrollo de productos personalizados</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="distribucion-card">
+                        <div class="distribucion-icono">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="distribucion-contenido">
+                            <h3>E-commerce B2B</h3>
+                            <p>Plataformas especializadas para comercio internacional</p>
+                            <ul class="distribucion-lista">
+                                <li><i class="fas fa-check"></i> Alibaba - Marketplace global</li>
+                                <li><i class="fas fa-check"></i> Global Sources - Proveedores verficados</li>
+                                <li><i class="fas fa-check"></i> Europages - Mercado europeo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Políticas y Condiciones -->
+                <div class="politicas-grid">
+                    <!-- Pedidos Mínimos -->
+                    <div class="politica-card">
+                        <div class="politica-header">
+                            <h3><i class="fas fa-clipboard-check"></i> Pedidos Mínimos</h3>
+                        </div>
+                        <div class="politica-contenido">
+                            <div class="pedido-item">
+                                <h4>Arnés Eléctrico</h4>
+                                <div class="pedido-cantidad">
+                                    <i class="fas fa-box"></i>
+                                    <span>200 Piezas</span>
+                                </div>
+                            </div>
+                            <div class="pedido-item">
+                                <h4>Sensor ABS</h4>
+                                <div class="pedido-cantidad">
+                                    <i class="fas fa-box"></i>
+                                    <span>500 Piezas</span>
+                                </div>
+                            </div>
+                            <div class="pedido-item">
+                                <h4>Módulo Electrónico</h4>
+                                <div class="pedido-cantidad">
+                                    <i class="fas fa-box"></i>
+                                    <span>100 Piezas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mercados Destino -->
+                    <div class="politica-card">
+                        <div class="politica-header">
+                            <h3><i class="fas fa-flag"></i> Mercados Destino</h3>
+                        </div>
+                        <div class="politica-contenido">
+                            <div class="mercados-grid">
+                                <div class="pais-item">
+                                    <div class="pais-bandera">
+                                        <i class="fas fa-flag"></i>
+                                    </div>
+                                    <div class="pais-info">
+                                        <h4>Alemania</h4>
+                                        <p>Centro automotriz europeo</p>
+                                    </div>
+                                </div>
+                                <div class="pais-item">
+                                    <div class="pais-bandera">
+                                        <i class="fas fa-flag"></i>
+                                    </div>
+                                    <div class="pais-info">
+                                        <h4>Francia</h4>
+                                        <p>Industria automotriz consolidada</p>
+                                    </div>
+                                </div>
+                                <div class="pais-item">
+                                    <div class="pais-bandera">
+                                        <i class="fas fa-flag"></i>
+                                    </div>
+                                    <div class="pais-info">
+                                        <h4>Polonia</h4>
+                                        <p>Mercado en crecimiento</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Entrega y Logística -->
+                    <div class="politica-card">
+                        <div class="politica-header">
+                            <h3><i class="fas fa-shipping-fast"></i> Entrega y Logística</h3>
+                        </div>
+                        <div class="politica-contenido">
+                            <div class="entrega-item">
+                                <h4><i class="fas fa-file-contract"></i> Incoterms Recomendados</h4>
+                                <ul>
+                                    <li><strong>EXW Jalisco:</strong> Para compradores con logística consolidada</li>
+                                    <li><strong>CIF Hamburgo/Le Havre:</strong> Marítimo consolidado</li>
+                                    <li><strong>CIP Frankfurt/París:</strong> Aéreo consolidado</li>
+                                </ul>
+                            </div>
+                            <div class="entrega-item">
+                                <h4><i class="fas fa-clock"></i> Tiempo de Producción</h4>
+                                <p><strong>10-20 días</strong> según volumen del pedido</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calidad y Pagos -->
+                    <div class="politica-card">
+                        <div class="politica-header">
+                            <h3><i class="fas fa-award"></i> Calidad y Pagos</h3>
+                        </div>
+                        <div class="politica-contenido">
+                            <div class="calidad-item">
+                                <h4><i class="fas fa-check-circle"></i> Control de Calidad</h4>
+                                <ul>
+                                    <li>Pruebas de funcionamiento previas al embarque</li>
+                                    <li>Empaque reforzado para transporte aéreo/marítimo</li>
+                                    <li>Certificación CE cuando aplique</li>
+                                </ul>
+                            </div>
+                            <div class="pagos-item">
+                                <h4><i class="fas fa-credit-card"></i> Términos de Pago</h4>
+                                <ul>
+                                    <li><strong>Estándar:</strong> 50% anticipo, resto contra documentos</li>
+                                    <li><strong>Órdenes mayores:</strong> Carta de crédito (L/C)</li>
+                                    <li><strong>Internacional:</strong> Transferencia SWIFT</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <div class="container">

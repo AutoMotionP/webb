@@ -1824,3 +1824,6 @@ body {
         right: 15px;
     }
 }
+body {
+    zoom: 0.84;
+}

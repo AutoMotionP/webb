@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="img/logo.jpg">
+    <link rel="icon" type="image/x-icon" href="img/logo1.jpg">
     <title>Costos Logísticos - AutoMotion Parts</title>
     <link rel="stylesheet" href="css/costos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -91,7 +91,7 @@
             
             <!-- Imagen Marítimo -->
             <div class="transporte-imagen">
-                <img src="img/costos1.jpg" alt="Transporte Marítimo" class="imagen-transporte">
+                <img src="img/costos1.jpg" alt="Transporte Marítimo" class="imagen-transporte"  data-index="0">
             </div>
 
             <!-- Tabla Marítimo -->
@@ -199,7 +199,7 @@
             
             <!-- Imagen Aéreo -->
             <div class="transporte-imagen">
-                <img src="img/costos2.jpg" alt="Transporte Aéreo" class="imagen-transporte">
+                <img src="img/costos2.jpg" alt="Transporte Aéreo" class="imagen-transporte"  data-index="1">
             </div>
 
             <!-- Tabla Aéreo -->
@@ -456,25 +456,38 @@
             </button>
         </div>
     </section>
-        <!-- Lightbox para imágenes (igual que cubicaje) -->
-    <div class="lightbox" id="lightbox">
-        <div class="lightbox-content">
-            <button class="lightbox-close">
-                <i class="fas fa-times"></i>
-            </button>
-            <button class="lightbox-prev">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="lightbox-next">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-            <img src="" alt="" class="lightbox-image">
-            <div class="lightbox-caption">
-                <h3 class="lightbox-title"></h3>
-                <p class="lightbox-desc"></p>
-            </div>
-        </div>
+<!-- Lightbox Pantalla Completa - SIMPLE -->
+<div class="fullscreen-lightbox" id="fullscreenLightbox">
+    <button class="fullscreen-close" id="fullscreenClose">
+        <i class="fas fa-times"></i>
+    </button>
+    
+    <div class="fullscreen-counter" id="fullscreenCounter">1/2</div>
+    
+    <div class="fullscreen-nav">
+        <button class="fullscreen-prev" id="fullscreenPrev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="fullscreen-next" id="fullscreenNext">
+            <i class="fas fa-chevron-right"></i>
+        </button>
     </div>
+    
+    <img src="" alt="" class="fullscreen-image" id="fullscreenImage">
+    
+    <div class="fullscreen-caption">
+        <h3 class="fullscreen-title" id="fullscreenTitle"></h3>
+        <p class="fullscreen-desc" id="fullscreenDesc"></p>
+    </div>
+</div>
+
+<!-- Modal para vista detallada (tamaño real) -->
+<div class="detailed-view" id="detailedView">
+    <button class="detailed-close">
+        <i class="fas fa-times"></i>
+    </button>
+    <img src="" alt="" class="detailed-image">
+</div>
 
     <footer>
         <!-- ... footer existente ... -->

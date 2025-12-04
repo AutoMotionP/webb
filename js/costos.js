@@ -1,568 +1,312 @@
-// COSTOS LOGÍSTICOS - JavaScript CORREGIDO
+// COSTOS LOGÍSTICOS - Lightbox Pantalla Completa
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('💰 AutoMotion Parts - Costos Logísticos cargado');
+    console.log('🖼️ AutoMotion Parts - Lightbox Pantalla Completa');
     
     // ============================================
-    // 1. ANIMACIONES AL SCROLL
+    // 1. CONFIGURACIÓN BÁSICA
     // ============================================
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
     
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                
-                // Animación para tablas
-                if (entry.target.classList.contains('tabla-costos')) {
-                    const rows = entry.target.querySelectorAll('tbody tr');
-                    rows.forEach((row, index) => {
-                        setTimeout(() => {
-                            row.style.opacity = '1';
-                            row.style.transform = 'translateX(0)';
-                        }, index * 50);
-                    });
-                }
-                
-                // Animación para cards
-                if (entry.target.classList.contains('impacto-card') || 
-                    entry.target.classList.contains('margen-card')) {
-                    const index = Array.from(document.querySelectorAll('.impacto-card, .margen-card')).indexOf(entry.target);
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, index * 200);
-                }
-            }
-        });
-    }, observerOptions);
-    
-    // Elementos a animar
-    const elementosParaAnimar = [
-        '.intro-card',
-        '.transporte-seccion',
-        '.impacto-card',
-        '.margen-card',
-        '.conclusion-final',
-        '.tabla-costos'
+    // Lista de imágenes (ajusta según tus imágenes)
+    const imagenes = [
+        {
+            src: 'img/costos1.jpg',
+            alt: 'Transporte Marítimo - Análisis de Costos',
+            titulo: 'Costos Logísticos - Transporte Marítimo',
+            descripcion: 'Desglose detallado de costos por contenedor marítimo. Incluye BOM, fletes, almacenaje y gastos operativos.'
+        },
+        {
+            src: 'img/costos2.jpg',
+            alt: 'Transporte Aéreo - Comparativa de Costos',
+            titulo: 'Costos Logísticos - Transporte Aéreo',
+            descripcion: 'Análisis comparativo de costos aéreos. Detalla fletes especiales, tiempos de entrega y costos unitarios.'
+        }
+        // Añade más imágenes si las tienes
     ];
     
-    elementosParaAnimar.forEach(selector => {
-        document.querySelectorAll(selector).forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(30px)';
-            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(element);
-        });
-    });
-    
-    // Animación específica para filas de tabla
-    document.querySelectorAll('.tabla-costos tbody tr').forEach(row => {
-        row.style.opacity = '0';
-        row.style.transform = 'translateX(-20px)';
-        row.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    });
+    let imagenActual = 0;
     
     // ============================================
-    // 2. EFECTOS HOVER MEJORADOS
+    // 2. ELEMENTOS DEL DOM
     // ============================================
     
-    // Efecto para tarjetas
-    document.querySelectorAll('.impacto-card, .margen-card').forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            const icono = this.querySelector('.impacto-icono, .margen-icono');
-            if (icono) {
-                icono.style.transform = 'scale(1.15) rotate(8deg)';
-            }
-        });
+    const lightbox = document.getElementById('fullscreenLightbox');
+    const lightboxImg = document.getElementById('fullscreenImage');
+    const lightboxTitle = document.getElementById('fullscreenTitle');
+    const lightboxDesc = document.getElementById('fullscreenDesc');
+    const lightboxCounter = document.getElementById('fullscreenCounter');
+    const closeBtn = document.getElementById('fullscreenClose');
+    const prevBtn = document.getElementById('fullscreenPrev');
+    const nextBtn = document.getElementById('fullscreenNext');
+    
+    // ============================================
+    // 3. FUNCIONES PRINCIPALES
+    // ============================================
+    
+    // Función para ABRIR el lightbox
+    function abrirLightbox(indice) {
+        if (indice < 0 || indice >= imagenes.length) return;
         
-        card.addEventListener('mouseleave', function() {
-            const icono = this.querySelector('.impacto-icono, .margen-icono');
-            if (icono) {
-                icono.style.transform = 'scale(1) rotate(0deg)';
-            }
-        });
+        imagenActual = indice;
+        actualizarLightbox();
+        
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Bloquear scroll
+        document.documentElement.style.overflow = 'hidden';
+        
+        console.log('🔍 Lightbox abierto - Imagen:', indice + 1);
+    }
+    
+    // Función para CERRAR el lightbox
+    function cerrarLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = 'auto'; // Restaurar scroll
+        document.documentElement.style.overflow = 'auto';
+    }
+    
+    // Función para ACTUALIZAR contenido
+    function actualizarLightbox() {
+        const img = imagenes[imagenActual];
+        
+        // Añadir efecto de cambio
+        lightboxImg.classList.add('changing');
+        
+        // Actualizar imagen
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        
+        // Actualizar texto
+        lightboxTitle.textContent = img.titulo;
+        lightboxDesc.textContent = img.descripcion;
+        
+        // Actualizar contador
+        lightboxCounter.textContent = `${imagenActual + 1}/${imagenes.length}`;
+        
+        // Remover clase de animación después de un tiempo
+        setTimeout(() => {
+            lightboxImg.classList.remove('changing');
+        }, 400);
+    }
+    
+    // Función para imagen ANTERIOR
+    function imagenAnterior() {
+        imagenActual = (imagenActual - 1 + imagenes.length) % imagenes.length;
+        actualizarLightbox();
+    }
+    
+    // Función para imagen SIGUIENTE
+    function imagenSiguiente() {
+        imagenActual = (imagenActual + 1) % imagenes.length;
+        actualizarLightbox();
+    }
+    
+    // ============================================
+    // 4. CONFIGURAR EVENTOS
+    // ============================================
+    
+    // Eventos para los botones del lightbox
+    closeBtn.addEventListener('click', cerrarLightbox);
+    prevBtn.addEventListener('click', imagenAnterior);
+    nextBtn.addEventListener('click', imagenSiguiente);
+    
+    // Cerrar con tecla ESC
+    document.addEventListener('keydown', function(e) {
+        if (!lightbox.classList.contains('active')) return;
+        
+        if (e.key === 'Escape' || e.key === 'Escape') {
+            cerrarLightbox();
+        } else if (e.key === 'ArrowLeft') {
+            imagenAnterior();
+        } else if (e.key === 'ArrowRight') {
+            imagenSiguiente();
+        }
     });
     
-    // Efecto para filas de tabla
-    document.querySelectorAll('.tabla-costos tbody tr').forEach(row => {
-        row.addEventListener('mouseenter', function() {
-            this.style.backgroundColor = 'rgba(26, 54, 93, 0.05)';
-        });
-        
-        row.addEventListener('mouseleave', function() {
-            if (this.classList.contains('total-fila')) {
-                this.style.backgroundColor = 'rgba(56, 161, 105, 0.1)';
-            } else if (this.classList.contains('precio-fila')) {
-                this.style.backgroundColor = 'rgba(229, 62, 62, 0.1)';
-            } else {
-                this.style.backgroundColor = '';
-            }
-        });
+    // Cerrar al hacer click fuera de la imagen
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox || e.target.classList.contains('fullscreen-lightbox')) {
+            cerrarLightbox();
+        }
     });
     
-    // Efecto para iconos de transporte
-    document.querySelectorAll('.transporte-icono').forEach(icono => {
-        icono.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.1) rotate(5deg)';
-        });
-        
-        icono.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1) rotate(0deg)';
-        });
+    // Prevenir que el click en la imagen cierre el lightbox
+    lightboxImg.addEventListener('click', function(e) {
+        e.stopPropagation();
     });
     
     // ============================================
-    // 3. SCROLL SUAVE Y HEADER
+    // 5. HACER LAS IMÁGENES CLICKEABLES
     // ============================================
     
-    // Smooth scroll para navegación
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+    function configurarImagenes() {
+        console.log('🎯 Configurando imágenes...');
+        
+        // Imagen 1 - Marítimo
+        const imagenMaritima = document.querySelector('.maritimo .transporte-imagen');
+        if (imagenMaritima) {
+            // Crear o seleccionar botón
+            let boton = imagenMaritima.querySelector('.boton-ampliar');
+            if (!boton) {
+                boton = document.createElement('button');
+                boton.className = 'boton-ampliar';
+                boton.innerHTML = '<i class="fas fa-expand"></i> Ver a pantalla completa';
+                imagenMaritima.appendChild(boton);
+            }
+            
+            // Hacer imagen clickeable
+            const img = imagenMaritima.querySelector('.imagen-transporte');
+            if (img) {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function() {
+                    abrirLightbox(0);
                 });
             }
-        });
-    });
-    
-    // Efecto de scroll en el header
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('header');
-        if (window.scrollY > 100) {
-            header.style.background = 'rgba(26, 54, 93, 0.95)';
-            header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-        } else {
-            header.style.background = 'rgba(26, 54, 93, 0.95)';
-            header.style.boxShadow = 'none';
-        }
-    });
-    
-    // ============================================
-    // 4. FUNCIONALIDAD PARA BOTONES
-    // ============================================
-    
-    // Botón CTA
-    const ctaButton = document.querySelector('.cta-button');
-    if (ctaButton) {
-        ctaButton.addEventListener('click', function() {
-            alert('📊 Te contactaremos para un análisis personalizado de costos logísticos. ¡Gracias por confiar en AutoMotion Parts!');
             
-            // Efecto de clic
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 150);
-            
-            // Efecto ripple
-            const ripple = document.createElement('span');
-            const rect = this.getBoundingClientRect();
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
-            
-            ripple.style.position = 'absolute';
-            ripple.style.borderRadius = '50%';
-            ripple.style.background = 'rgba(255, 255, 255, 0.6)';
-            ripple.style.transform = 'scale(0)';
-            ripple.style.animation = 'ripple 0.6s linear';
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-            ripple.style.width = ripple.style.height = '100px';
-            
-            this.style.position = 'relative';
-            this.style.overflow = 'hidden';
-            this.appendChild(ripple);
-            
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
-        });
-    }
-    
-    // ============================================
-    // 5. ANIMACIONES ESPECIALES
-    // ============================================
-    
-    // Contadores para márgenes
-    function animarContadores() {
-        const margenes = document.querySelectorAll('.margen-anterior, .margen-nuevo');
-        
-        margenes.forEach(margen => {
-            const texto = margen.textContent;
-            const numero = parseFloat(texto.replace('%', ''));
-            
-            if (!isNaN(numero)) {
-                let contador = 0;
-                const incremento = numero / 20;
-                const intervalo = setInterval(() => {
-                    contador += incremento;
-                    if (contador >= numero) {
-                        margen.textContent = texto;
-                        clearInterval(intervalo);
-                    } else {
-                        margen.textContent = contador.toFixed(2) + (texto.includes('%') ? '%' : '');
-                    }
-                }, 50);
-            }
-        });
-    }
-    
-    // Observar sección de conclusiones
-    const conclusionesObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                setTimeout(animarContadores, 500);
-                conclusionesObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-    
-    const conclusionesSection = document.querySelector('.conclusiones-financieras');
-    if (conclusionesSection) {
-        conclusionesObserver.observe(conclusionesSection);
-    }
-    
-    // ============================================
-    // 6. INYECTAR CSS ADICIONAL
-    // ============================================
-    const estilosAdicionales = `
-        /* Efecto ripple */
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-        
-        /* Resaltar cambios en precios */
-        .tabla-costos tbody tr:hover td {
-            transition: all 0.3s ease;
-        }
-        
-        .total-fila:hover td {
-            background-color: rgba(56, 161, 105, 0.2) !important;
-        }
-        
-        .precio-fila:hover td {
-            background-color: rgba(229, 62, 62, 0.2) !important;
-        }
-        
-        /* Animación para imágenes */
-        .transporte-imagen {
-            transition: all 0.3s ease;
-        }
-        
-        .transporte-imagen:hover {
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3) !important;
-        }
-        
-        /* Efecto para badges de margen */
-        .margen-badge {
-            transition: all 0.3s ease;
-        }
-        
-        .margen-card:hover .margen-badge {
-            transform: scale(1.05);
-        }
-        
-        /* Animación para lightbox */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes scaleIn {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-    `;
-    
-    const styleSheet = document.createElement('style');
-    styleSheet.textContent = estilosAdicionales;
-    document.head.appendChild(styleSheet);
-    
-    // ============================================
-    // 7. LIGHTBOX PARA AMPLIAR IMÁGENES
-    // ============================================
-    
-    function initLightbox() {
-        const lightbox = document.getElementById('lightbox');
-        if (!lightbox) {
-            console.warn('⚠️ Lightbox no encontrado en el HTML');
-            return;
-        }
-        
-        const lightboxImage = lightbox.querySelector('.lightbox-image');
-        const lightboxTitle = lightbox.querySelector('.lightbox-title');
-        const lightboxDesc = lightbox.querySelector('.lightbox-desc');
-        const closeBtn = lightbox.querySelector('.lightbox-close');
-        const prevBtn = lightbox.querySelector('.lightbox-prev');
-        const nextBtn = lightbox.querySelector('.lightbox-next');
-        
-        // Crear botones de ampliar en cada imagen
-        document.querySelectorAll('.transporte-imagen').forEach((container, index) => {
-            const img = container.querySelector('.imagen-transporte');
-            if (!img) return;
-            
-            const title = container.closest('.transporte-seccion')?.querySelector('h2')?.textContent || '';
-            
-            // Crear botón de ampliar
-            const ampliarBtn = document.createElement('button');
-            ampliarBtn.className = 'boton-ampliar';
-            ampliarBtn.innerHTML = '<i class="fas fa-expand"></i> Ampliar';
-            container.appendChild(ampliarBtn);
-            
-            // Hacer clickeable toda la imagen
-            container.style.cursor = 'pointer';
-            
-            // Agregar eventos
-            container.addEventListener('click', (e) => {
-                if (!e.target.classList.contains('boton-ampliar')) {
-                    openLightbox(index);
-                }
-            });
-            
-            ampliarBtn.addEventListener('click', (e) => {
+            // Evento para el botón
+            boton.addEventListener('click', function(e) {
                 e.stopPropagation();
-                openLightbox(index);
+                abrirLightbox(0);
             });
-        });
-        
-        // Obtener todas las imágenes
-        const allImages = Array.from(document.querySelectorAll('.imagen-transporte')).map((img, index) => {
-            const container = img.closest('.transporte-imagen');
-            const section = container?.closest('.transporte-seccion');
-            const title = section?.querySelector('h2')?.textContent || '';
-            const desc = container?.querySelector('.imagen-leyenda p')?.textContent || '';
             
-            return {
-                src: img.src,
-                alt: img.alt,
-                title: title,
-                desc: desc
+            // Evento para el contenedor
+            imagenMaritima.addEventListener('click', function(e) {
+                if (!e.target.classList.contains('boton-ampliar')) {
+                    abrirLightbox(0);
+                }
+            });
+            
+            console.log('✅ Imagen marítima configurada');
+        }
+        
+        // Imagen 2 - Aéreo
+        const imagenAerea = document.querySelector('.aereo .transporte-imagen');
+        if (imagenAerea) {
+            // Crear o seleccionar botón
+            let boton = imagenAerea.querySelector('.boton-ampliar');
+            if (!boton) {
+                boton = document.createElement('button');
+                boton.className = 'boton-ampliar';
+                boton.innerHTML = '<i class="fas fa-expand"></i> Ver a pantalla completa';
+                imagenAerea.appendChild(boton);
+            }
+            
+            // Hacer imagen clickeable
+            const img = imagenAerea.querySelector('.imagen-transporte');
+            if (img) {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function() {
+                    abrirLightbox(1);
+                });
+            }
+            
+            // Evento para el botón
+            boton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                abrirLightbox(1);
+            });
+            
+            // Evento para el contenedor
+            imagenAerea.addEventListener('click', function(e) {
+                if (!e.target.classList.contains('boton-ampliar')) {
+                    abrirLightbox(1);
+                }
+            });
+            
+            console.log('✅ Imagen aérea configurada');
+        }
+    }
+    
+    // ============================================
+    // 6. VERIFICAR QUE LAS IMÁGENES EXISTAN
+    // ============================================
+    
+    function verificarImagenes() {
+        imagenes.forEach((img, index) => {
+            const testImg = new Image();
+            testImg.onload = function() {
+                console.log(`✅ Imagen ${index + 1} cargada: ${img.src}`);
             };
+            testImg.onerror = function() {
+                console.error(`❌ Imagen no encontrada: ${img.src}`);
+                // Mostrar mensaje amigable
+                const seccion = document.querySelectorAll('.transporte-imagen')[index];
+                if (seccion) {
+                    const errorMsg = document.createElement('div');
+                    errorMsg.innerHTML = `
+                        <div style="text-align:center; padding:20px; background:#ffe6e6; border-radius:8px; margin:10px 0;">
+                            <i class="fas fa-exclamation-triangle" style="color:#e53e3e; font-size:24px; margin-bottom:10px;"></i>
+                            <p style="color:#333; font-weight:bold;">Imagen no encontrada</p>
+                            <p style="color:#666; font-size:0.9rem;">Reemplazar: ${img.src}</p>
+                        </div>
+                    `;
+                    seccion.appendChild(errorMsg);
+                }
+            };
+            testImg.src = img.src;
         });
-        
-        let currentIndex = 0;
-        
-        // Función para abrir lightbox
-        function openLightbox(index) {
-            currentIndex = index;
-            const imageData = allImages[currentIndex];
-            
-            lightboxImage.src = imageData.src;
-            lightboxImage.alt = imageData.alt;
-            lightboxTitle.textContent = imageData.title;
-            lightboxDesc.textContent = imageData.desc;
-            
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            
-            // Efecto de entrada
-            lightboxImage.style.opacity = '0';
-            setTimeout(() => {
-                lightboxImage.style.opacity = '1';
-            }, 50);
-        }
-        
-        // Función para cerrar lightbox
-        function closeLightbox() {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = 'auto';
-            
-            // Efecto de salida
-            lightboxImage.style.opacity = '0';
-        }
-        
-        // Función para mostrar imagen anterior
-        function showPrevImage() {
-            currentIndex = (currentIndex - 1 + allImages.length) % allImages.length;
-            updateLightboxImage();
-        }
-        
-        // Función para mostrar siguiente imagen
-        function showNextImage() {
-            currentIndex = (currentIndex + 1) % allImages.length;
-            updateLightboxImage();
-        }
-        
-        // Actualizar imagen en lightbox
-        function updateLightboxImage() {
-            const imageData = allImages[currentIndex];
-            
-            lightboxImage.style.opacity = '0';
-            setTimeout(() => {
-                lightboxImage.src = imageData.src;
-                lightboxImage.alt = imageData.alt;
-                lightboxTitle.textContent = imageData.title;
-                lightboxDesc.textContent = imageData.desc;
-                lightboxImage.style.opacity = '1';
-            }, 300);
-        }
-        
-        // Event Listeners
-        closeBtn.addEventListener('click', closeLightbox);
-        prevBtn.addEventListener('click', showPrevImage);
-        nextBtn.addEventListener('click', showNextImage);
-        
-        // Cerrar con Escape
-        document.addEventListener('keydown', (e) => {
-            if (!lightbox.classList.contains('active')) return;
-            
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowLeft') showPrevImage();
-            if (e.key === 'ArrowRight') showNextImage();
-        });
-        
-        // Cerrar haciendo click fuera de la imagen
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) closeLightbox();
-        });
-        
-        // Prevenir scroll cuando lightbox está abierto
-        lightbox.addEventListener('wheel', (e) => {
-            if (lightbox.classList.contains('active')) {
-                e.preventDefault();
-            }
-        }, { passive: false });
-        
-        console.log(`🖼️ Lightbox configurado con ${allImages.length} imágenes`);
-        
-        // Exportar función para abrir desde consola
-        window.abrirImagen = function(index) {
-            if (index >= 0 && index < allImages.length) {
-                openLightbox(index);
-            }
-        };
     }
     
     // ============================================
-    // 8. MANEJO DE IMÁGENES Y ERRORES
+    // 7. ANIMACIONES BÁSICAS AL SCROLL
     // ============================================
     
-    function checkImages() {
-        const images = document.querySelectorAll('.imagen-transporte');
-        
-        images.forEach((img, index) => {
-            img.addEventListener('error', function() {
-                console.warn(`⚠️ Imagen no encontrada: ${this.src}`);
-                this.style.border = '2px dashed var(--accent-red)';
-                this.style.padding = '20px';
-                this.alt = '⚠️ Imagen no disponible';
-                
-                // Ocultar botón de ampliar si hay error
-                const container = this.closest('.transporte-imagen');
-                const ampliarBtn = container?.querySelector('.boton-ampliar');
-                if (ampliarBtn) {
-                    ampliarBtn.style.display = 'none';
-                }
-                
-                // Mensaje de error
-                const errorMsg = document.createElement('div');
-                errorMsg.innerHTML = `
-                    <i class="fas fa-exclamation-triangle"></i>
-                    <span>Reemplazar imagen</span>
-                `;
-                errorMsg.style.cssText = `
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    background: var(--accent-red);
-                    color: white;
-                    padding: 10px 15px;
-                    border-radius: 8px;
-                    font-size: 0.9rem;
-                    z-index: 100;
-                    display: flex;
-                    align-items: center;
-                    gap: 8px;
-                    white-space: nowrap;
-                `;
-                
-                const containerImg = this.closest('.transporte-imagen');
-                if (containerImg) {
-                    containerImg.style.position = 'relative';
-                    containerImg.appendChild(errorMsg);
+    function configurarAnimaciones() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
-            
-            // Añadir título para accesibilidad
-            img.setAttribute('title', 'Click para ampliar');
+        }, { threshold: 0.1 });
+        
+        // Animar elementos al hacer scroll
+        const elementos = [
+            '.intro-card',
+            '.transporte-seccion',
+            '.impacto-card',
+            '.margen-card',
+            '.conclusion-final'
+        ];
+        
+        elementos.forEach(selector => {
+            document.querySelectorAll(selector).forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.6s ease';
+                observer.observe(el);
+            });
         });
     }
     
     // ============================================
-    // 9. INICIALIZACIÓN DE CONTADORES
+    // 8. INICIALIZAR TODO
     // ============================================
     
-    function initContadores() {
-        // Ya está implementado en la sección 5
-        // Esta función es solo para organización
-        console.log('🔢 Contadores inicializados');
-    }
-    
-    // ============================================
-    // 10. INICIALIZACIÓN COMPLETA
-    // ============================================
-    
-    function initCostosCompleto() {
-        console.log('🚀 Inicializando página de Costos Logísticos');
+    function inicializar() {
+        console.log('🚀 Iniciando AutoMotion Parts Costos...');
         
-        try {
-            // Inicializar todas las funcionalidades
-            initLightbox();
-            checkImages();
-            
-            console.log('✅ Costos Logísticos - Todas las funcionalidades cargadas');
-        } catch (error) {
-            console.error('❌ Error al inicializar:', error);
-        }
+        // 1. Configurar imágenes clickeables
+        configurarImagenes();
+        
+        // 2. Verificar que las imágenes existan
+        verificarImagenes();
+        
+        // 3. Configurar animaciones
+        configurarAnimaciones();
+        
+        // 4. Exponer funciones globales para debug
+        window.AutoMotionLightbox = {
+            abrir: abrirLightbox,
+            cerrar: cerrarLightbox,
+            anterior: imagenAnterior,
+            siguiente: imagenSiguiente,
+            totalImagenes: imagenes.length
+        };
+        
+        console.log('✅ Sistema listo. Lightbox pantalla completa activado.');
+        console.log('💡 Tip: Click en cualquier imagen o botón "Ver a pantalla completa"');
     }
     
-    // Inicializar cuando todo esté listo
-    setTimeout(initCostosCompleto, 100);
-    
-    // ============================================
-    // FUNCIONES GLOBALES PARA DEBUG
-    // ============================================
-    
-    // Exportar funciones para uso global
-    window.CostosLogisticos = {
-        scrollToSection: function(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth' });
-            }
-        },
-        highlightRow: function(rowIndex) {
-            const rows = document.querySelectorAll('.tabla-costos tbody tr');
-            if (rows[rowIndex]) {
-                rows[rowIndex].style.backgroundColor = 'rgba(229, 62, 62, 0.1)';
-                setTimeout(() => {
-                    if (rows[rowIndex].classList.contains('total-fila')) {
-                        rows[rowIndex].style.backgroundColor = 'rgba(56, 161, 105, 0.1)';
-                    } else if (rows[rowIndex].classList.contains('precio-fila')) {
-                        rows[rowIndex].style.backgroundColor = 'rgba(229, 62, 62, 0.1)';
-                    } else {
-                        rows[rowIndex].style.backgroundColor = '';
-                    }
-                }, 2000);
-            }
-        },
-        testLightbox: function() {
-            if (window.abrirImagen) {
-                window.abrirImagen(0);
-            }
-        }
-    };
-    
-    console.log('📊 JS de Costos Logísticos cargado exitosamente');
+    // Iniciar después de un breve delay
+    setTimeout(inicializar, 300);
 });

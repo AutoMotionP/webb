@@ -5,139 +5,162 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('📦 Cubicaje - JavaScript cargado');
     
+// ============================================
+// 1. LIGHTBOX PARA IMÁGENES - VERSIÓN CORREGIDA
+// ============================================
+
+function initLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = lightbox.querySelector('.lightbox-image');
+    const lightboxTitle = lightbox.querySelector('.lightbox-title');
+    const lightboxDesc = lightbox.querySelector('.lightbox-desc');
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+    const prevBtn = lightbox.querySelector('.lightbox-prev');
+    const nextBtn = lightbox.querySelector('.lightbox-next');
+    
+    let allImages = [];
+    let currentIndex = 0;
+    
+    // Función para abrir lightbox
+    function openLightbox(index) {
+        currentIndex = index;
+        const imageData = allImages[currentIndex];
+        
+        lightboxImage.src = imageData.src;
+        lightboxImage.alt = imageData.alt;
+        lightboxTitle.textContent = imageData.title;
+        lightboxDesc.textContent = imageData.desc;
+        
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
     // ============================================
-    // 1. LIGHTBOX PARA IMÁGENES
+    // CONFIGURAR IMÁGENES PRINCIPALES (PRIMERO)
     // ============================================
     
-    function initLightbox() {
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImage = lightbox.querySelector('.lightbox-image');
-        const lightboxTitle = lightbox.querySelector('.lightbox-title');
-        const lightboxDesc = lightbox.querySelector('.lightbox-desc');
-        const closeBtn = lightbox.querySelector('.lightbox-close');
-        const prevBtn = lightbox.querySelector('.lightbox-prev');
-        const nextBtn = lightbox.querySelector('.lightbox-next');
+    const mainImages = document.querySelectorAll('.imagen-grande');
+    mainImages.forEach((img, mainIndex) => {
+        const tema = img.closest('.tema-producto');
+        const title = tema?.querySelector('h2')?.textContent || 'Producto';
+        const desc = img.closest('.imagen-container')?.querySelector('.imagen-leyenda span')?.textContent || '';
         
-        // Obtener todas las imágenes que abren lightbox
-        const openButtons = document.querySelectorAll('.ver-detalle, .imagen-overlay');
-        const allImages = [];
+        // Guardar índice específico para esta imagen
+        const imageIndex = allImages.length;
+        allImages.push({
+            src: img.src,
+            alt: img.alt,
+            title: title,
+            desc: desc,
+            type: 'main',
+            originalIndex: mainIndex
+        });
         
-        // Configurar cada botón
-        openButtons.forEach((btn, index) => {
-            const imageContainer = btn.closest('.subtema-imagen, .visualizacion-imagen');
-            if (imageContainer) {
-                const img = imageContainer.querySelector('img');
-                const title = imageContainer.closest('.subtema-card, .visualizacion-card')
-                    ?.querySelector('h3')?.textContent || 'Imagen';
-                const desc = imageContainer.closest('.subtema-card, .visualizacion-card')
-                    ?.querySelector('p')?.textContent || 'Detalle del cubicaje';
+        // Configurar evento click CON EL ÍNDICE CORRECTO
+        img.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            openLightbox(imageIndex); // Usar el índice específico
+        });
+        
+        console.log(`📷 Imagen principal ${mainIndex + 1}: ${title} - índice: ${imageIndex}`);
+    });
+    
+    // ============================================
+    // CONFIGURAR BOTONES DE AMPLIAR (DESPUÉS)
+    // ============================================
+    
+    const openButtons = document.querySelectorAll('.ver-detalle, .imagen-overlay');
+    
+    openButtons.forEach((btn, btnIndex) => {
+        const imageContainer = btn.closest('.subtema-imagen, .visualizacion-imagen');
+        if (imageContainer) {
+            const img = imageContainer.querySelector('img');
+            const title = imageContainer.closest('.subtema-card, .visualizacion-card')
+                ?.querySelector('h3')?.textContent || 'Imagen';
+            const desc = imageContainer.closest('.subtema-card, .visualizacion-card')
+                ?.querySelector('p')?.textContent || 'Detalle del cubicaje';
+            
+            if (img) {
+                // Guardar índice específico
+                const imageIndex = allImages.length;
+                allImages.push({
+                    src: img.src,
+                    alt: img.alt,
+                    title: title,
+                    desc: desc,
+                    type: 'detail',
+                    originalIndex: btnIndex
+                });
                 
-                if (img) {
-                    allImages.push({
-                        src: img.src,
-                        alt: img.alt,
-                        title: title,
-                        desc: desc
-                    });
-                    
-                    btn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        openLightbox(index);
-                    });
-                }
+                // Configurar evento
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    openLightbox(imageIndex); // Usar el índice específico
+                });
             }
-        });
+        }
+    });
+    
+    // ============================================
+    // FUNCIONES DE NAVEGACIÓN
+    // ============================================
+    
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+    
+    function showPrevImage() {
+        currentIndex = (currentIndex - 1 + allImages.length) % allImages.length;
+        updateLightboxImage();
+    }
+    
+    function showNextImage() {
+        currentIndex = (currentIndex + 1) % allImages.length;
+        updateLightboxImage();
+    }
+    
+    function updateLightboxImage() {
+        const imageData = allImages[currentIndex];
         
-        // También imágenes principales
-        const mainImages = document.querySelectorAll('.imagen-grande');
-        mainImages.forEach((img, index) => {
-            const title = img.closest('.tema-producto')?.querySelector('h2')?.textContent || 'Producto';
-            const desc = img.closest('.imagen-container')?.querySelector('.imagen-leyenda span')?.textContent || '';
-            
-            allImages.push({
-                src: img.src,
-                alt: img.alt,
-                title: title,
-                desc: desc
-            });
-            
-            img.addEventListener('click', () => {
-                openLightbox(allImages.length - 1);
-            });
-        });
-        
-        let currentIndex = 0;
-        
-        // Función para abrir lightbox
-        function openLightbox(index) {
-            currentIndex = index;
-            const imageData = allImages[currentIndex];
-            
+        lightboxImage.style.opacity = '0';
+        setTimeout(() => {
             lightboxImage.src = imageData.src;
             lightboxImage.alt = imageData.alt;
             lightboxTitle.textContent = imageData.title;
             lightboxDesc.textContent = imageData.desc;
-            
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        // Función para cerrar lightbox
-        function closeLightbox() {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-        
-        // Función para mostrar imagen anterior
-        function showPrevImage() {
-            currentIndex = (currentIndex - 1 + allImages.length) % allImages.length;
-            const imageData = allImages[currentIndex];
-            
-            lightboxImage.style.opacity = '0';
-            setTimeout(() => {
-                lightboxImage.src = imageData.src;
-                lightboxImage.alt = imageData.alt;
-                lightboxTitle.textContent = imageData.title;
-                lightboxDesc.textContent = imageData.desc;
-                lightboxImage.style.opacity = '1';
-            }, 300);
-        }
-        
-        // Función para mostrar siguiente imagen
-        function showNextImage() {
-            currentIndex = (currentIndex + 1) % allImages.length;
-            const imageData = allImages[currentIndex];
-            
-            lightboxImage.style.opacity = '0';
-            setTimeout(() => {
-                lightboxImage.src = imageData.src;
-                lightboxImage.alt = imageData.alt;
-                lightboxTitle.textContent = imageData.title;
-                lightboxDesc.textContent = imageData.desc;
-                lightboxImage.style.opacity = '1';
-            }, 300);
-        }
-        
-        // Event Listeners
-        closeBtn.addEventListener('click', closeLightbox);
-        prevBtn.addEventListener('click', showPrevImage);
-        nextBtn.addEventListener('click', showNextImage);
-        
-        // Cerrar con Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowLeft') showPrevImage();
-            if (e.key === 'ArrowRight') showNextImage();
-        });
-        
-        // Cerrar haciendo click fuera de la imagen
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) closeLightbox();
-        });
-        
-        console.log(`🖼️ Lightbox configurado con ${allImages.length} imágenes`);
+            lightboxImage.style.opacity = '1';
+        }, 300);
     }
+    
+    // ============================================
+    // EVENT LISTENERS
+    // ============================================
+    
+    closeBtn.addEventListener('click', closeLightbox);
+    prevBtn.addEventListener('click', showPrevImage);
+    nextBtn.addEventListener('click', showNextImage);
+    
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') showPrevImage();
+        if (e.key === 'ArrowRight') showNextImage();
+    });
+    
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+    
+    console.log(`🖼️ Lightbox configurado con ${allImages.length} imágenes`);
+    console.log('📊 Distribución:');
+    allImages.forEach((img, idx) => {
+        console.log(`  ${idx}: ${img.title} (${img.type}) - ${img.src.split('/').pop()}`);
+    });
+}
     
     // ============================================
     // 2. ANIMACIONES AL HACER SCROLL
